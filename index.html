@@ -17,6 +17,11 @@
         </div>
 
         <nav>
+          <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
           <ul class="nav-links">
             <li><a href="index.html">Beranda</a></li>
             <li><a href="profil.html">Profil</a></li>
@@ -121,6 +126,24 @@
         </div>
       </div>
     </footer>
+
+    <script>
+    const menu = document.querySelector('#mobile-menu');
+    const menuLinks = document.querySelector('.nav-links');
+
+  // Fungsi untuk toggle menu hamburger
+  menu.addEventListener('click', function() {
+    menuLinks.classList.toggle('active');
+    
+    // Animasi sederhana untuk hamburger (opsional)
+    menu.classList.toggle('is-active');
+  });
+
+  // Menutup menu jika salah satu link diklik (agar tidak menutupi konten)
+  document.querySelectorAll('.nav-links a').forEach(n => n.addEventListener('click', () => {
+    menuLinks.classList.remove('active');
+  }));
+</script>
   </body>
 </html>
   </body>

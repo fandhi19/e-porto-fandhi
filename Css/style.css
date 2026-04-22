@@ -158,6 +158,61 @@ header {
   }
 }
 
+/* --- Menu Toggle (Hamburger) --- */
+.menu-toggle {
+  display: none; /* Sembunyi di layar laptop */
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--dark-color);
+  transition: var(--transition);
+}
+
+/* --- Responsive Mobile (Max 768px) --- */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex; /* Muncul di layar HP */
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%; /* Muncul tepat di bawah header */
+    left: -100%; /* Sembunyi di samping kiri */
+    flex-direction: column;
+    background-color: var(--white);
+    width: 100%;
+    text-align: center;
+    transition: 0.4s;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+  }
+
+  .nav-links.active {
+    left: 0; /* Geser ke tengah saat aktif */
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+  }
+
+  /* Dropdown di Mobile agar tetap rapi */
+  .dropdown-content {
+    position: static;
+    display: none;
+    box-shadow: none;
+    width: 100%;
+  }
+
+  .dropdown.active .dropdown-content {
+    display: block;
+  }
+}
+
 /* --- Hero Section (Beranda) --- */
 .hero {
   height: 80vh;
