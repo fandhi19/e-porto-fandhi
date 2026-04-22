@@ -1,0 +1,390 @@
+/* --- Pengaturan Dasar & Variabel Warna Kekinian --- */
+:root {
+  --primary-color: #4f46e5; /* Biru Indigo */
+  --secondary-color: #818cf8;
+  --dark-color: #1f2937;
+  --light-bg: #f3f4f6;
+  --white: #ffffff;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Scroll yang mulus saat menu diklik */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--light-bg);
+  color: var(--dark-color);
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* --- Pengaturan Logo Kampus (UNY) --- */
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Jarak antara gambar logo UNY dan teks */
+}
+
+.logo-img {
+  width: 60px; /* Atur angka ini kalau logonya kelihatannya kurang besar atau kekecilan */
+  height: auto;
+}
+
+/* --- Header & Navigasi Sticky --- */
+header {
+  background-color: var(--white);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--dark-color);
+  margin-bottom: 0; /* Memastikan tidak ada margin bawah berlebih */
+}
+
+.logo span {
+  color: var(--primary-color);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  align-items: center; /* Memastikan semua menu lurus sejajar di tengah */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--dark-color);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+/* =========================================
+   GAYA UNTUK MENU DROPDOWN DOKUMEN PPL
+   ========================================= */
+
+/* Menjadikan list dropdown sebagai patokan posisi */
+.dropdown {
+  position: relative;
+}
+
+/* Mengatur panah kecil agar sejajar dengan teks */
+.dropbtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+/* Kotak isi dropdown (Disembunyikan secara default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--white);
+  min-width: 220px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  padding: 10px 0;
+  margin-top: 2px; /* Jarak antara kotak menu dan header */
+  list-style: none;
+}
+
+/* Gaya teks di dalam kotak dropdown */
+.dropdown-content li a {
+  color: var(--dark-color);
+  padding: 12px 25px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+/* Warna saat kursor menyentuh pilihan dokumen */
+.dropdown-content li a:hover {
+  background-color: rgba(79, 70, 229, 0.05);
+  color: var(--primary-color);
+  padding-left: 30px; /* Efek teks bergeser sedikit ke kanan */
+}
+
+/* Menampilkan kotak dropdown saat menu utama disorot */
+.dropdown:hover .dropdown-content {
+  display: block;
+  animation: fadeInDropdown 0.3s ease;
+}
+
+/* Animasi muncul dari atas ke bawah */
+@keyframes fadeInDropdown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Hero Section (Beranda) --- */
+.hero {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), rgba(129, 140, 248, 0.1));
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.hero h1 span {
+  color: var(--primary-color);
+}
+
+.hero p {
+  font-size: 18px;
+  color: #4b5563;
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+}
+
+/* Tombol Interaktif */
+.btn {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+}
+
+.btn:hover {
+  background-color: var(--dark-color);
+  transform: translateY(-3px); /* Animasi naik sedikit */
+}
+
+/* --- Dokumen Section (Card Layout) --- */
+.dokumen-section {
+  padding: 80px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 50px;
+  color: var(--dark-color);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* Animasi & Interaksi pada Kartu */
+.card {
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+  border-top: 4px solid transparent;
+}
+
+.card:hover {
+  transform: translateY(-10px); /* Efek mengambang saat disentuh kursor */
+  border-top: 4px solid var(--primary-color);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #6b7280;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.card-link {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.card-link:hover {
+  color: var(--dark-color);
+}
+
+/* =========================================
+   GAYA FOOTER MODERN (3 KOLOM + MAP)
+   ========================================= */
+.site-footer {
+  background-color: var(--dark-color);
+  color: #d1d5db;
+  padding: 60px 0 0 0;
+  margin-top: 80px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-col h3 {
+  color: var(--white);
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.footer-col h3 span {
+  color: var(--primary-color);
+}
+
+.footer-col h4 {
+  color: var(--white);
+  font-size: 18px;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-col h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+}
+
+.brand-col p {
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.links-col ul {
+  list-style: none;
+}
+
+.links-col ul li {
+  margin-bottom: 12px;
+}
+
+.links-col ul li a {
+  color: #d1d5db;
+  text-decoration: none;
+  transition: var(--transition);
+  font-size: 15px;
+}
+
+.links-col ul li a:hover {
+  color: var(--primary-color);
+  padding-left: 5px;
+}
+
+.contact-col p {
+  font-size: 15px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: var(--white);
+}
+
+/* Peta Google Maps */
+.map-container {
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  line-height: 0;
+}
+
+.map-container iframe {
+  filter: grayscale(30%) contrast(1.1);
+  transition: var(--transition);
+}
+
+.map-container iframe:hover {
+  filter: grayscale(0%);
+}
+
+/* Link Sosmed */
+.social-links {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  background: var(--primary-color);
+}
+
+/* Garis Hak Cipta */
+.footer-bottom {
+  background-color: #111827;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #9ca3af;
+}

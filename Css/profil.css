@@ -1,0 +1,714 @@
+/* --- Pengaturan Dasar & Variabel Warna Kekinian --- */
+:root {
+  --primary-color: #4f46e5; /* Biru Indigo */
+  --secondary-color: #818cf8;
+  --dark-color: #1f2937;
+  --light-bg: #f3f4f6;
+  --white: #ffffff;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Scroll yang mulus saat menu diklik */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--light-bg);
+  color: var(--dark-color);
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* --- Pengaturan Logo Kampus (UNY) --- */
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Jarak antara gambar logo UNY dan teks */
+}
+
+.logo-img {
+  width: 60px; /* Atur angka ini kalau logonya kelihatannya kurang besar atau kekecilan */
+  height: auto;
+}
+
+/* --- Header & Navigasi Sticky --- */
+header {
+  background-color: var(--white);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--dark-color);
+  margin-bottom: 0; /* Memastikan tidak ada margin bawah berlebih */
+}
+
+.logo span {
+  color: var(--primary-color);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  align-items: center; /* Memastikan semua menu lurus sejajar di tengah */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--dark-color);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+/* =========================================
+   GAYA FOOTER MODERN (3 KOLOM + MAP)
+   ========================================= */
+.site-footer {
+  background-color: var(--dark-color);
+  color: #d1d5db;
+  padding: 60px 0 0 0;
+  margin-top: 80px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-col h3 {
+  color: var(--white);
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.footer-col h3 span {
+  color: var(--primary-color);
+}
+
+.footer-col h4 {
+  color: var(--white);
+  font-size: 18px;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-col h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+}
+
+.brand-col p {
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.links-col ul {
+  list-style: none;
+}
+
+.links-col ul li {
+  margin-bottom: 12px;
+}
+
+.links-col ul li a {
+  color: #d1d5db;
+  text-decoration: none;
+  transition: var(--transition);
+  font-size: 15px;
+}
+
+.links-col ul li a:hover {
+  color: var(--primary-color);
+  padding-left: 5px;
+}
+
+.contact-col p {
+  font-size: 15px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: var(--white);
+}
+
+/* Peta Google Maps */
+.map-container {
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  line-height: 0;
+}
+
+.map-container iframe {
+  filter: grayscale(30%) contrast(1.1);
+  transition: var(--transition);
+}
+
+.map-container iframe:hover {
+  filter: grayscale(0%);
+}
+
+/* Link Sosmed */
+.social-links {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  background: var(--primary-color);
+}
+
+/* Garis Hak Cipta */
+.footer-bottom {
+  background-color: #111827;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+/* =========================================
+   GAYA UNTUK MENU DROPDOWN DOKUMEN PPL
+   ========================================= */
+
+/* Menjadikan list dropdown sebagai patokan posisi */
+.dropdown {
+  position: relative;
+}
+
+/* Mengatur panah kecil agar sejajar dengan teks */
+.dropbtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+/* Kotak isi dropdown (Disembunyikan secara default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--white);
+  min-width: 220px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  padding: 10px 0;
+  margin-top: 2px; /* Jarak antara kotak menu dan header */
+  list-style: none;
+}
+
+/* Gaya teks di dalam kotak dropdown */
+.dropdown-content li a {
+  color: var(--dark-color);
+  padding: 12px 25px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+/* Warna saat kursor menyentuh pilihan dokumen */
+.dropdown-content li a:hover {
+  background-color: rgba(79, 70, 229, 0.05);
+  color: var(--primary-color);
+  padding-left: 30px; /* Efek teks bergeser sedikit ke kanan */
+}
+
+/* Menampilkan kotak dropdown saat menu utama disorot */
+.dropdown:hover .dropdown-content {
+  display: block;
+  animation: fadeInDropdown 0.3s ease;
+}
+
+/* Animasi muncul dari atas ke bawah */
+@keyframes fadeInDropdown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   GAYA BARU: MODERN KREATIF UNTUK PROFIL
+   ========================================= */
+
+/* Jarak aman agar konten tidak tertutup header */
+
+.profil-page-content {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column; /* TAMBAHKAN INI: Memaksa section berurut ke bawah */
+  align-items: center;
+  padding: 60px 0;
+  width: 100%; /* Memastikan wadah menggunakan seluruh lebar layar */
+}
+
+/* --- Efek Animasi "Blob" pada Foto Profil --- */
+.profil-img img {
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  /* Bentuk tidak simetris (kekinian) */
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  /* Animasi bergerak pelan */
+  animation: morph 8s ease-in-out infinite;
+  box-shadow: 0 15px 35px rgba(79, 70, 229, 0.2);
+  border: 8px solid var(--white);
+}
+
+/* Keyframes untuk membuat bentuk fotonya bergerak-gerak */
+@keyframes morph {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
+
+/* --- Teks Biografi --- */
+.biography p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #4b5563;
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+/* --- Gaya Baru Kutipan (Gradient Floating Card) --- */
+.profile-quote {
+  position: relative;
+  margin-top: 40px;
+  padding: 30px 40px;
+  /* Latar belakang gradasi biru/ungu */
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--white);
+  border-radius: 20px;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.8;
+  text-align: center;
+  box-shadow: 0 15px 25px rgba(79, 70, 229, 0.25);
+  transition: var(--transition);
+}
+
+/* Tanda kutip raksasa transparan di belakang teks */
+.profile-quote::before {
+  content: "\201C";
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-size: 80px;
+  font-family: serif;
+  color: rgba(255, 255, 255, 0.15);
+  line-height: 1;
+}
+
+/* Interaksi saat kursor diarahkan ke kutipan */
+.profile-quote:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 30px rgba(79, 70, 229, 0.35);
+}
+
+.profile-quote strong {
+  display: block;
+  margin-top: 20px;
+  font-style: normal;
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+  .profil-page-content {
+    padding: 40px 0;
+  }
+
+  .profil-img img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .biography p {
+    text-align: left;
+  }
+
+  .profile-quote {
+    padding: 25px 20px;
+    font-size: 15px;
+  }
+}
+
+/* =========================================
+   MEMBUAT PROFIL JADI POSISI TENGAH (CENTERED)
+   ========================================= */
+
+/* Mengunci wadah utama agar semua isinya di tengah */
+.profil-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Menengahkan elemen secara horizontal */
+  justify-content: center;
+  max-width: 850px; /* Lebar maksimal teks agar tidak terlalu memanjang */
+  margin-left: 0px;
+}
+
+/* Memastikan area teks juga ikut ke tengah */
+.profil-text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profil-section {
+  margin-left: 90px;
+}
+
+/* Memaksa judul utama untuk ke tengah */
+.profil-text .section-title {
+  text-align: center !important;
+}
+
+/* Membuat isi paragraf rata tengah */
+.biography p {
+  text-align: center; /* Ubah tulisan ini jadi 'justify' kalau kamu mau teksnya rata kanan-kiri seperti koran */
+  width: 100%;
+  margin-bottom: 15px;
+  line-height: 1.8;
+}
+
+/* Memastikan tombol juga ada di tengah */
+.profil-text div[style*="margin-top: 30px"] {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* =========================================
+   GAYA HOBI & MINAT (GRID CARDS)
+   ========================================= */
+
+.hobi-section {
+  width: 100%;
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 2px dashed #e5e7eb;
+}
+
+.hobi-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.hobi-container .section-title {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* Mengatur tata letak kotak-kotak hobi */
+.hobi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  width: 100%;
+  padding: 0 15px;
+}
+
+/* Desain per kartu hobi */
+.hobi-card {
+  background: #ffffff;
+  padding: 30px 20px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f3f4f6;
+  transition: all 0.3s ease;
+}
+
+/* Efek saat kursor diarahkan ke kartu */
+.hobi-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(79, 70, 229, 0.15);
+  border-color: var(--secondary-color, #8b5cf6);
+}
+
+/* Ikon/Emoji Hobi */
+.hobi-icon {
+  font-size: 45px;
+  margin-bottom: 15px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.hobi-card:hover .hobi-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.hobi-card h3 {
+  font-size: 18px;
+  color: #1f2937;
+  margin-bottom: 10px;
+}
+
+.hobi-card p {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Desain per kartu hobi */
+.hobi-card {
+  background: #ffffff;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f3f4f6;
+  transition: all 0.3s ease;
+  overflow: hidden; /* PENTING: Agar sudut gambar ikut melengkung sesuai border-radius */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Efek saat kursor diarahkan ke kartu */
+.hobi-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(79, 70, 229, 0.15);
+  border-color: var(--secondary-color, #8b5cf6);
+}
+
+/* Wadah Gambar di Atas Kartu */
+.hobi-img {
+  width: 100%;
+  height: 200px; /* Kamu bisa mengatur tinggi gambar di sini */
+  overflow: hidden;
+}
+
+/* Memastikan gambar proporsional dan tidak gepeng */
+.hobi-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Efek gambar sedikit membesar saat di-hover (Zoom-in lembut) */
+.hobi-card:hover .hobi-img img {
+  transform: scale(1.1);
+}
+
+/* Wadah Teks di Bawah Gambar */
+.hobi-content {
+  padding: 25px 20px;
+}
+
+.hobi-content h3 {
+  font-size: 18px;
+  color: #1f2937;
+  margin-bottom: 10px;
+}
+
+.hobi-content p {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 480px) {
+  .hobi-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsif untuk HP */
+@media (max-width: 480px) {
+  .hobi-grid {
+    grid-template-columns: 1fr; /* Jadi 1 kolom berbaris ke bawah di HP */
+  }
+}
+
+/* =========================================
+   GAYA JEJAK PENDIDIKAN (TIMELINE)
+   ========================================= */
+
+.pendidikan-section {
+  width: 100%;
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 2px dashed #e5e7eb; /* Garis pemisah tipis dari profil */
+}
+
+.pendidikan-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.pendidikan-container .section-title {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* Wadah Utama Garis Waktu */
+.timeline {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  border-left: 4px solid var(--primary-color, #4f46e5); /* Garis vertikal */
+  margin-left: 20px;
+  padding-left: 30px;
+}
+
+/* Setiap Item Pendidikan */
+.timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Titik Bulat pada Garis Waktu */
+.timeline-dot {
+  position: absolute;
+  left: -41px; /* Posisi titik pas di tengah garis */
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-color, #4f46e5), var(--secondary-color, #8b5cf6));
+  border: 4px solid #ffffff; /* Menggunakan hex murni agar aman */
+  box-shadow: 0 0 10px rgba(79, 70, 229, 0.4);
+}
+
+/* Desain Kartu Pendidikan */
+.timeline-content {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f3f4f6;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(79, 70, 229, 0.15);
+}
+
+.timeline-content h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #1f2937;
+}
+
+.timeline-content .institusi {
+  font-weight: 700;
+  color: var(--primary-color, #4f46e5);
+  margin-bottom: 5px;
+}
+
+.timeline-content .tahun {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--secondary-color, #8b5cf6);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+
+.timeline-content .deskripsi {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4b5563;
+  margin: 0;
+  text-align: left;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+  .timeline {
+    margin-left: 10px;
+    padding-left: 20px;
+  }
+  .timeline-dot {
+    left: -31px;
+  }
+  .timeline-content {
+    padding: 20px;
+  }
+}
