@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>E-Portofolio PPL 1 | PPG Calon Guru</title>
     <link rel="stylesheet" href="Css/style.css" />
-    <link rel="icon" type="image/png" href="Images/logo_uny.png">
+    <link rel="icon" type="image/png" href="Images/logo_uny.png" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
   </head>
   <body>
@@ -128,23 +128,20 @@
     </footer>
 
     <script>
-    const menu = document.querySelector('#mobile-menu');
-    const menuLinks = document.querySelector('.nav-links');
-
-  // Fungsi untuk toggle menu hamburger
-  menu.addEventListener('click', function() {
-    menuLinks.classList.toggle('active');
-    
-    // Animasi sederhana untuk hamburger (opsional)
-    menu.classList.toggle('is-active');
-  });
-
-  // Menutup menu jika salah satu link diklik (agar tidak menutupi konten)
-  document.querySelectorAll('.nav-links a').forEach(n => n.addEventListener('click', () => {
-    menuLinks.classList.remove('active');
-  }));
-</script>
-  </body>
-</html>
+      const menu = document.querySelector("#mobile-menu");
+      const menuLinks = document.querySelector(".nav-links");
+      // Fungsi untuk toggle menu hamburger
+      menu.addEventListener("click", function () {
+        menuLinks.classList.toggle("active");
+        // Animasi sederhana untuk hamburger (opsional)
+        menu.classList.toggle("is-active");
+      });
+      // Menutup menu jika salah satu link diklik (agar tidak menutupi konten)
+      document.querySelectorAll(".nav-links a").forEach((n) =>
+        n.addEventListener("click", () => {
+          menuLinks.classList.remove("active");
+        }),
+      );
+    </script>
   </body>
 </html>
