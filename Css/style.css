@@ -193,23 +193,53 @@ header {
   }
 
   .nav-links.active {
-    left: 0; /* Geser ke tengah saat aktif */
+    left: 0;
+    display: flex; /* Memastikan menu muncul */
   }
 
-  .nav-links li {
-    margin: 15px 0;
-  }
-
-  /* Dropdown di Mobile agar tetap rapi */
   .dropdown-content {
-    position: static;
-    display: none;
-    box-shadow: none;
+    position: static; /* Biar nempel di bawah menu utama */
+    display: block; /* Harus block agar transition jalan, tapi kita sembunyikan pakai height */
+    visibility: hidden; /* Sembunyi dari screen reader saat tertutup */
+    max-height: 0; /* Tinggi awal 0 */
+    overflow: hidden; /* Konten di dalam tidak kelihatan */
+    background-color: rgba(79, 70, 229, 0.03); /* Beri warna background tipis */
     width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0; /* Padding awal 0 */
+    margin: 0;
+    transition:
+      max-height 0.5s ease-in-out,
+      padding 0.5s ease-in-out,
+      visibility 0.5s; /* Animasi mulus */
   }
 
+  /* Saat Dropdown Aktif (Diklik di JS) */
   .dropdown.active .dropdown-content {
-    display: block;
+    visibility: visible;
+    max-height: 300px; /* Atur angka ini (misal 300px) agar cukup untuk semua item sub-menu */
+    padding: 10px 0; /* Beri padding saat terbuka */
+  }
+
+  /* Gaya teks di dalam kotak dropdown mobile */
+  .dropdown-content li a {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+
+  /* Animasi Panah ▾ berputar */
+  .dropbtn {
+    justify-content: center; /* Teks menu di tengah */
+  }
+
+  .dropbtn::after {
+    content: " ▾";
+    transition: transform 0.3s ease;
+  }
+
+  .dropdown.active .dropbtn::after {
+    transform: rotate(180deg); /* Panah berputar ke atas */
   }
 }
 

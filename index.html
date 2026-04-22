@@ -130,16 +130,29 @@
     <script>
       const menu = document.querySelector("#mobile-menu");
       const menuLinks = document.querySelector(".nav-links");
-      // Fungsi untuk toggle menu hamburger
+      const dropdown = document.querySelector(".dropdown");
+      const dropbtn = document.querySelector(".dropbtn");
+
+      // 1. Fungsi Toggle Hamburger Menu
       menu.addEventListener("click", function () {
         menuLinks.classList.toggle("active");
-        // Animasi sederhana untuk hamburger (opsional)
-        menu.classList.toggle("is-active");
+        menu.classList.toggle("is-active"); // Untuk animasi hamburger jika ada
       });
-      // Menutup menu jika salah satu link diklik (agar tidak menutupi konten)
-      document.querySelectorAll(".nav-links a").forEach((n) =>
+
+      // 2. Fungsi Dropdown khusus Mobile (Klik, bukan Hover)
+      dropbtn.addEventListener("click", function (e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault(); // Mencegah pindah halaman karena tag <a>
+          dropdown.classList.toggle("active");
+        }
+      });
+
+      // 3. Menutup menu jika link diklik (opsional, agar tidak menutupi konten)
+      document.querySelectorAll(".nav-links a:not(.dropbtn)").forEach((n) =>
         n.addEventListener("click", () => {
           menuLinks.classList.remove("active");
+          menu.classList.remove("is-active");
+          dropdown.classList.remove("active");
         }),
       );
     </script>

@@ -90,6 +90,169 @@ header {
 }
 
 /* =========================================
+   GAYA UNTUK MENU DROPDOWN DOKUMEN PPL
+   ========================================= */
+
+/* Menjadikan list dropdown sebagai patokan posisi */
+.dropdown {
+  position: relative;
+}
+
+/* Mengatur panah kecil agar sejajar dengan teks */
+.dropbtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+/* Kotak isi dropdown (Disembunyikan secara default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--white);
+  min-width: 220px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  padding: 10px 0;
+  margin-top: 2px; /* Jarak antara kotak menu dan header */
+  list-style: none;
+}
+
+/* Gaya teks di dalam kotak dropdown */
+.dropdown-content li a {
+  color: var(--dark-color);
+  padding: 12px 25px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+/* Warna saat kursor menyentuh pilihan dokumen */
+.dropdown-content li a:hover {
+  background-color: rgba(79, 70, 229, 0.05);
+  color: var(--primary-color);
+  padding-left: 30px; /* Efek teks bergeser sedikit ke kanan */
+}
+
+/* Menampilkan kotak dropdown saat menu utama disorot */
+.dropdown:hover .dropdown-content {
+  display: block;
+  animation: fadeInDropdown 0.3s ease;
+}
+
+/* Animasi muncul dari atas ke bawah */
+@keyframes fadeInDropdown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Menu Toggle (Hamburger) --- */
+.menu-toggle {
+  display: none; /* Sembunyi di layar laptop */
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--dark-color);
+  transition: var(--transition);
+}
+
+/* =========================================
+   PERBAIKAN CSS MOBILE (HAPUS YANG LAMA)
+   ========================================= */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex; /* Munculkan hamburger */
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: -100%; /* Sembunyi di kiri default */
+    flex-direction: column;
+    background-color: var(--white);
+    width: 100%;
+    text-align: center;
+    transition: left 0.4s ease-in-out; /* Animasi menu masuk dari kiri */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+    z-index: 99;
+  }
+
+  .nav-links.active {
+    left: 0; /* Menu muncul */
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+    width: 100%; /* Agar link full width saat diklik */
+  }
+
+  /* --- PERBAIKAN ANIMASI DROPDOWN MOBILE (SLIDE DOWN) --- */
+
+  .dropdown-content {
+    position: static; /* Biar nempel di bawah menu utama */
+    display: block; /* Harus block agar transition jalan, tapi kita sembunyikan pakai height */
+    visibility: hidden; /* Sembunyi dari screen reader saat tertutup */
+    max-height: 0; /* Tinggi awal 0 */
+    overflow: hidden; /* Konten di dalam tidak kelihatan */
+    background-color: rgba(79, 70, 229, 0.03); /* Beri warna background tipis */
+    width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0; /* Padding awal 0 */
+    margin: 0;
+    transition:
+      max-height 0.5s ease-in-out,
+      padding 0.5s ease-in-out,
+      visibility 0.5s; /* Animasi mulus */
+  }
+
+  /* Saat Dropdown Aktif (Diklik di JS) */
+  .dropdown.active .dropdown-content {
+    visibility: visible;
+    max-height: 300px; /* Atur angka ini (misal 300px) agar cukup untuk semua item sub-menu */
+    padding: 10px 0; /* Beri padding saat terbuka */
+  }
+
+  /* Gaya teks di dalam kotak dropdown mobile */
+  .dropdown-content li a {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+
+  /* Animasi Panah ▾ berputar */
+  .dropbtn {
+    justify-content: center; /* Teks menu di tengah */
+  }
+
+  .dropbtn::after {
+    content: " ▾";
+    transition: transform 0.3s ease;
+  }
+
+  .dropdown.active .dropbtn::after {
+    transform: rotate(180deg); /* Panah berputar ke atas */
+  }
+}
+
+/* =========================================
    GAYA FOOTER MODERN (3 KOLOM + MAP)
    ========================================= */
 .site-footer {
@@ -214,75 +377,6 @@ header {
   text-align: center;
   font-size: 14px;
   color: #9ca3af;
-}
-
-/* =========================================
-   GAYA UNTUK MENU DROPDOWN DOKUMEN PPL
-   ========================================= */
-
-/* Menjadikan list dropdown sebagai patokan posisi */
-.dropdown {
-  position: relative;
-}
-
-/* Mengatur panah kecil agar sejajar dengan teks */
-.dropbtn {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  cursor: pointer;
-}
-
-/* Kotak isi dropdown (Disembunyikan secara default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: var(--white);
-  min-width: 220px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  top: 100%;
-  left: 0;
-  z-index: 1000;
-  padding: 10px 0;
-  margin-top: 2px; /* Jarak antara kotak menu dan header */
-  list-style: none;
-}
-
-/* Gaya teks di dalam kotak dropdown */
-.dropdown-content li a {
-  color: var(--dark-color);
-  padding: 12px 25px;
-  text-decoration: none;
-  display: block;
-  font-size: 14px;
-  font-weight: 500;
-  transition: var(--transition);
-}
-
-/* Warna saat kursor menyentuh pilihan dokumen */
-.dropdown-content li a:hover {
-  background-color: rgba(79, 70, 229, 0.05);
-  color: var(--primary-color);
-  padding-left: 30px; /* Efek teks bergeser sedikit ke kanan */
-}
-
-/* Menampilkan kotak dropdown saat menu utama disorot */
-.dropdown:hover .dropdown-content {
-  display: block;
-  animation: fadeInDropdown 0.3s ease;
-}
-
-/* Animasi muncul dari atas ke bawah */
-@keyframes fadeInDropdown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* =========================================
@@ -411,8 +505,18 @@ header {
   flex-direction: column;
   align-items: center; /* Menengahkan elemen secara horizontal */
   justify-content: center;
-  max-width: 850px; /* Lebar maksimal teks agar tidak terlalu memanjang */
+  /* Lebar maksimal teks agar tidak terlalu memanjang */
   margin-left: 0px;
+}
+
+.profil-section {
+  margin-left: 120px;
+}
+
+@media (max-width: 768px) {
+  .profil-container {
+    margin-left: -43px;
+  }
 }
 
 /* Memastikan area teks juga ikut ke tengah */
@@ -421,10 +525,6 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.profil-section {
-  margin-left: 90px;
 }
 
 /* Memaksa judul utama untuk ke tengah */
