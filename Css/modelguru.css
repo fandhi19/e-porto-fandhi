@@ -158,6 +158,91 @@ header {
   }
 }
 
+/* --- Menu Toggle (Hamburger) --- */
+.menu-toggle {
+  display: none; /* Sembunyi di layar laptop */
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--dark-color);
+  transition: var(--transition);
+}
+
+/* --- Responsive Mobile (Max 768px) --- */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex; /* Muncul di layar HP */
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%; /* Muncul tepat di bawah header */
+    left: -100%; /* Sembunyi di samping kiri */
+    flex-direction: column;
+    background-color: var(--white);
+    width: 100%;
+    text-align: center;
+    transition: 0.4s;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+  }
+
+  .nav-links.active {
+    left: 0;
+    display: flex; /* Memastikan menu muncul */
+  }
+
+  .dropdown-content {
+    position: static; /* Biar nempel di bawah menu utama */
+    display: block; /* Harus block agar transition jalan, tapi kita sembunyikan pakai height */
+    visibility: hidden; /* Sembunyi dari screen reader saat tertutup */
+    max-height: 0; /* Tinggi awal 0 */
+    overflow: hidden; /* Konten di dalam tidak kelihatan */
+    background-color: rgba(79, 70, 229, 0.03); /* Beri warna background tipis */
+    width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0; /* Padding awal 0 */
+    margin: 0;
+    transition:
+      max-height 0.5s ease-in-out,
+      padding 0.5s ease-in-out,
+      visibility 0.5s; /* Animasi mulus */
+  }
+
+  /* Saat Dropdown Aktif (Diklik di JS) */
+  .dropdown.active .dropdown-content {
+    visibility: visible;
+    max-height: 300px; /* Atur angka ini (misal 300px) agar cukup untuk semua item sub-menu */
+    padding: 10px 0; /* Beri padding saat terbuka */
+  }
+
+  /* Gaya teks di dalam kotak dropdown mobile */
+  .dropdown-content li a {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+
+  /* Animasi Panah ▾ berputar */
+  .dropbtn {
+    justify-content: center; /* Teks menu di tengah */
+  }
+
+  .dropbtn::after {
+    content: " ▾";
+    transition: transform 0.3s ease;
+  }
+
+  .dropdown.active .dropbtn::after {
+    transform: rotate(180deg); /* Panah berputar ke atas */
+  }
+}
+
 /* =========================================
    GAYA FOOTER MODERN (3 KOLOM + MAP)
    ========================================= */
