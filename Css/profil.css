@@ -473,6 +473,9 @@ header {
     width: 150px;
     height: 150px;
   }
+  .profile-img img {
+    width: 140px;
+  }
 }
 
 /* ========== SECTION 2: MENGENAL LEBIH DEKAT ========== */
