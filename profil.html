@@ -6,9 +6,17 @@
     <title>Profil Mahasiswa | E-Portofolio PPL 1 PPG</title>
     <link rel="stylesheet" href="Css/profil.css" />
     <link rel="icon" type="image/png" href="Images/logo_uny.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   </head>
   <body>
+    <!-- Background animasi abstrak blur (sama seperti index) -->
+    <div class="animated-bg">
+      <div class="blob"></div>
+      <div class="blob"></div>
+      <div class="blob"></div>
+      <div class="blob"></div>
+    </div>
+
     <header>
       <div class="container header-container">
         <div class="logo-wrapper">
@@ -25,7 +33,6 @@
           <ul class="nav-links">
             <li><a href="index.html">Beranda</a></li>
             <li><a href="profil.html">Profil</a></li>
-
             <li class="dropdown">
               <a href="#" class="dropbtn">Artefak PPL 1 ▾</a>
               <ul class="dropdown-content">
@@ -35,7 +42,6 @@
                 <li><a href="dokumentasi.html">Dokumentasi</a></li>
               </ul>
             </li>
-
             <li><a href="refleksi.html">Refleksi</a></li>
             <li><a href="modelguru.html">Model Guru</a></li>
           </ul>
@@ -44,18 +50,41 @@
     </header>
 
     <main class="profil-page-content">
-      <section class="profil-section reveal">
-        <div class="container profil-container">
-          <div class="profil-img">
-            <img src="Images/PAS_foto_ppg.png" alt="Foto Profil Ilyas Fandhi" />
+      <!-- SECTION 1: Profil Profesional (hanya Ilyas) -->
+      <section class="hero-duo reveal">
+        <div class="container">
+          <div class="duo-wrapper">
+            <div class="duo-badge">
+              <span class="year-badge">2026</span>
+              <span class="program-badge">PPG Prajabatan</span>
+            </div>
+            <h2 class="duo-title">PROFIL PROFESIONAL</h2>
+            <div class="duo-grid" style="grid-template-columns: 1fr; max-width: 500px">
+              <!-- Kartu Ilyas (sendiri) -->
+              <div class="profile-card">
+                <div class="profile-img">
+                  <img src="Images/PAS_foto_ppg.png" alt="Foto Ilyas Fandhi" />
+                </div>
+                <h3>Ilyas Fandhi Anggara</h3>
+                <p class="role">Sarjana Komputer & Calon Pendidik Informatika</p>
+                <div class="card-overlay">
+                  <p>Berdedikasi menciptakan pengalaman belajar digital yang transformatif, interaktif, dan berbasis TPACK.</p>
+                </div>
+              </div>
+            </div>
+            <div class="duo-cta">
+              <a href="mailto:ilyasfandhianggara@gmail.com" class="btn-outline">📧 Kontak Saya</a>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div class="profil-text">
-            <h2 class="section-title">Profil Mahasiswa</h2>
-            <h3>Ilyas Fandhi Anggara, S.Kom</h3>
-            <p class="subtitle">Mahasiswa PPG Calon Guru - Universitas Negeri Yogyakarta</p>
-
-            <div class="biography">
+      <!-- SECTION 2: Mengenal Lebih Dekat -->
+      <section class="about-section reveal">
+        <div class="container">
+          <div class="about-box">
+            <h2 class="section-title"><span class="emoji-icon">✨</span> Mengenal Lebih Dekat</h2>
+            <div class="about-content">
               <p>
                 Halo! Saya <strong>Ilyas Fandhi Anggara</strong>, lahir dan tumbuh besar di <strong>Kabupaten Ogan Komering Ilir (OKI) Provinsi Sumatera Selatan</strong>. Daerah asal saya ini memiliki keunikan budaya seperti pempek dan
                 songket, serta keindahan Sungai Musi. Masyarakatnya dikenal ramah, menjunjung tinggi kebersamaan, dan memiliki semangat gotong royong. Karakteristik lingkungan inilah yang turut membentuk karakter dan cara pandang saya dalam
@@ -65,23 +94,21 @@
                 <strong>Inspirasi saya untuk menjadi seorang guru berasal dari kakak saya.</strong> Melihat seseorang yang awalnya tidak bisa menjadi bisa memberikan kepuasan tersendiri. Melalui Pendidikan Profesi Guru (PPG) di UNY ini,
                 tujuan utama saya adalah untuk bertransformasi menjadi pendidik yang inovatif, inklusif, dan berpihak pada peserta didik.
               </p>
-
               <blockquote class="profile-quote">
                 "Pendidikan adalah senjata paling mematikan di dunia, karena dengan pendidikan, Anda dapat mengubah dunia."<br />
                 <strong>- Nelson Mandela</strong>
               </blockquote>
             </div>
-
-            <div style="margin-top: 40px">
-              <a href="index.html" class="btn-outline">← Kembali ke Beranda</a>
-            </div>
           </div>
         </div>
       </section>
 
+      <!-- SECTION 3: Jejak Pendidikan (timeline) -->
       <section class="pendidikan-section reveal">
         <div class="container text-center">
-          <div style="text-align: center"><h2 class="section-title">Jejak Pendidikan</h2></div>
+          <div style="text-align: center">
+            <h2 class="section-title"><span class="emoji-icon">📚</span>Jejak Pendidikan</h2>
+          </div>
           <div class="timeline">
             <div class="timeline-item">
               <div class="timeline-dot"></div>
@@ -92,7 +119,6 @@
                 <p class="deskripsi">Saat ini menempuh pendidikan profesi untuk bertransformasi menjadi guru yang profesional, inovatif, dan inklusif bagi peserta didik.</p>
               </div>
             </div>
-
             <div class="timeline-item">
               <div class="timeline-dot"></div>
               <div class="timeline-content">
@@ -102,7 +128,6 @@
                 <p class="deskripsi">Lulus dengan gelar Sarjana Komputer (S.Kom). Mempelajari dan mengembangkan berbagai proyek terkait teknologi dan pendidikan.</p>
               </div>
             </div>
-
             <div class="timeline-item">
               <div class="timeline-dot"></div>
               <div class="timeline-content">
@@ -116,9 +141,12 @@
         </div>
       </section>
 
+      <!-- SECTION 4: Hobi & Minat -->
       <section class="hobi-section reveal">
         <div class="container text-center">
-          <div style="text-align: center"><h2 class="section-title">Hobi & Minat</h2></div>
+          <div style="text-align: center">
+            <h2 class="section-title"><span class="emoji-icon">🎯</span>Hobi & Minat</h2>
+          </div>
           <div class="hobi-grid">
             <div class="hobi-card">
               <div class="hobi-img">
@@ -129,7 +157,6 @@
                 <p>Mengabadikan momen berharga dan keindahan sekitar melalui lensa kamera.</p>
               </div>
             </div>
-
             <div class="hobi-card">
               <div class="hobi-img">
                 <img src="Images/foto_buku.jpg.jpeg" alt="Membaca Buku" />
@@ -139,7 +166,6 @@
                 <p>Membaca buku fiksi membantu saya meningkatkan empati dan meredakan stres.</p>
               </div>
             </div>
-
             <div class="hobi-card">
               <div class="hobi-img">
                 <img src="Images/fotohiking.jpeg" alt="Traveling" />
@@ -160,7 +186,6 @@
           <h3>E-Portofolio<span> PPG.</span></h3>
           <p>Ruang rekam jejak Praktik Pengalaman Lapangan (PPL) 1. Disusun sebagai dokumentasi dan refleksi perjalanan menjadi guru profesional.</p>
         </div>
-
         <div class="footer-col links-col">
           <h4>Navigasi Cepat</h4>
           <ul>
@@ -171,11 +196,9 @@
             <li><a href="lkpd.html">LKPD</a></li>
           </ul>
         </div>
-
         <div class="footer-col contact-col">
           <h4>Lokasi LPTK</h4>
           <p>📍 Universitas Negeri Yogyakarta</p>
-
           <div class="map-container">
             <iframe
               src="https://maps.google.com/maps?q=Universitas%20Negeri%20Yogyakarta&t=&z=15&ie=UTF8&iwloc=&output=embed"
@@ -185,17 +208,14 @@
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-            >
-            </iframe>
+            ></iframe>
           </div>
-
           <div class="social-links">
             <a href="mailto:ilyasfandhianggara@gmail.com">Email</a>
             <a href="https://www.instagram.com/fandhidk17/" target="_blank">Instagram</a>
           </div>
         </div>
       </div>
-
       <div class="footer-bottom">
         <div class="container">
           <p>© 2026 Ilyas Fandhi Anggara - E-Portofolio PPL 1 PPG. Semua Hak Cipta Dilindungi.</p>
@@ -204,7 +224,7 @@
     </footer>
 
     <script>
-      // 1. Toggle Hamburger Menu
+      // Toggle Hamburger Menu
       const menu = document.querySelector("#mobile-menu");
       const menuLinks = document.querySelector(".nav-links");
       const dropdown = document.querySelector(".dropdown");
@@ -215,7 +235,6 @@
         menu.classList.toggle("is-active");
       });
 
-      // 2. Dropdown Mobile
       dropbtn.addEventListener("click", function (e) {
         if (window.innerWidth <= 768) {
           e.preventDefault();
@@ -223,20 +242,18 @@
         }
       });
 
-      // 3. Animasi Scroll Reveal (INTERAKTIF)
+      // Scroll Reveal Animation
       function reveal() {
         var reveals = document.querySelectorAll(".reveal");
         for (var i = 0; i < reveals.length; i++) {
           var windowHeight = window.innerHeight;
           var elementTop = reveals[i].getBoundingClientRect().top;
           var elementVisible = 100;
-
           if (elementTop < windowHeight - elementVisible) {
             reveals[i].classList.add("active");
           }
         }
       }
-
       window.addEventListener("scroll", reveal);
       reveal();
     </script>
