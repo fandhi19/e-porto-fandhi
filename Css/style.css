@@ -632,6 +632,63 @@ header {
   text-shadow: 0 0 8px var(--primary-color);
 }
 
+/* Info Section (3 kolom sebelum dokumen) */
+.info-section {
+  padding: 40px 0 20px 0;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  text-align: center;
+}
+
+.info-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 30px 20px;
+  transition: var(--transition);
+}
+
+.info-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary-color);
+  box-shadow: 0 15px 30px rgba(14, 165, 233, 0.15);
+}
+
+.info-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.info-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text-main);
+}
+
+.info-card p {
+  color: var(--text-muted);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Responsive untuk tablet & HP */
+@media (max-width: 768px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .info-card {
+    padding: 20px;
+  }
+}
+
 /* --- Footer --- */
 .site-footer {
   background-color: #0b1120;
@@ -806,5 +863,164 @@ header {
   /* Penyesuaian teks "IT teacher" untuk HP */
   .hero-image-col::before {
     font-size: 15vw; /* Disesuaikan agar pas 3 baris di ukuran HP */
+  }
+}
+
+/* Scrolling Banner Modern */
+.scrolling-banner {
+  width: 100%;
+  overflow: hidden;
+  background: rgba(14, 165, 233, 0.1);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 12px 0;
+  margin: 20px 0;
+  white-space: nowrap;
+  position: relative;
+}
+
+.scrolling-track {
+  display: inline-flex;
+  gap: 48px;
+  animation: scrollBanner 20s linear infinite;
+}
+
+.scrolling-track span {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px 18px;
+  border-radius: 40px;
+  backdrop-filter: blur(4px);
+  letter-spacing: 0.3px;
+  transition: var(--transition);
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.scrolling-track span:hover {
+  background: var(--primary-color);
+  color: #0f172a;
+  transform: scale(1.05);
+  box-shadow: 0 0 12px var(--primary-color);
+}
+
+@keyframes scrollBanner {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Hentikan animasi saat pengguna mengarahkan kursor (aksesibilitas) */
+.scrolling-banner:hover .scrolling-track {
+  animation-play-state: paused;
+}
+
+/* Responsif: kurangi gap di HP */
+@media (max-width: 768px) {
+  .scrolling-track {
+    gap: 24px;
+  }
+  .scrolling-track span {
+    font-size: 13px;
+    padding: 4px 12px;
+  }
+}
+
+/* Timeline Kalender */
+.timeline-calendar {
+  padding: 60px 0 40px;
+}
+
+.calendar-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.calendar-week {
+  display: flex;
+  background: var(--card-bg);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.calendar-week:hover {
+  transform: translateX(8px);
+  border-color: var(--primary-color);
+  box-shadow: 0 10px 25px rgba(14, 165, 233, 0.2);
+}
+
+.week-label {
+  min-width: 130px;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(139, 92, 246, 0.1));
+  padding: 18px 12px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--text-main);
+  border-right: 1px solid var(--border-color);
+}
+
+.week-label span {
+  font-size: 13px;
+  font-weight: normal;
+  color: var(--primary-hover);
+  display: block;
+  margin-top: 5px;
+}
+
+.week-events {
+  flex: 1;
+  padding: 15px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.event {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 14px;
+  color: var(--text-muted);
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.event:hover {
+  background: rgba(14, 165, 233, 0.2);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Responsif untuk mobile */
+@media (max-width: 680px) {
+  .calendar-week {
+    flex-direction: column;
+  }
+  .week-label {
+    min-width: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: 12px;
+  }
+  .week-events {
+    padding: 12px 15px;
+  }
+  .event {
+    font-size: 12px;
+    padding: 4px 12px;
   }
 }
