@@ -2,32 +2,42 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dokumentasi PPL 1 | PPG Calon Guru</title>
-    <link rel="icon" type="image/png" href="Images/logo_uny.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Dokumentasi PPL | Ilyas Fandhi Anggara | E-Portofolio PPG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="Css/dokumentasi.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="Images/logo_uny.png" type="image/x-icon" />
   </head>
   <body>
+    <div class="cyber-cursor-dot" id="cursor-dot"></div>
+    <div class="cyber-cursor-ring" id="cursor-ring"></div>
+
+    <div class="scanlines"></div>
+
+    <div class="bg-grid-cyber"></div>
+    <div class="bg-gradient-wrapper">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+    </div>
+
+    <canvas id="neural-data-particle"></canvas>
+
     <header>
       <div class="container header-container">
         <div class="logo-wrapper">
-          <img src="Images/logo_uny.png" alt="Logo UNY" class="logo-img" />
-          <h2 class="logo">E-Portofolio<span> PPG.</span></h2>
+          <h2 class="logo">E-Portofolio<span class="neon-text flicker"> PPG.</span></h2>
+          <span class="cyber-badge">JEJAK PPL</span>
         </div>
 
         <nav>
-          <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </div>
-          <ul class="nav-links">
+          <div class="menu-toggle" id="mobile-menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+          <ul class="nav-links" id="nav-links">
             <li><a href="index.html">Beranda</a></li>
             <li><a href="profil.html">Profil</a></li>
-
             <li class="dropdown">
-              <a href="#" class="dropbtn">Artefak PPL 1 ▾</a>
+              <a href="#dokumen" class="dropbtn">Artefak PPL 1 <span class="arrow">&#9662;</span></a>
               <ul class="dropdown-content">
                 <li><a href="observasi.html">Hasil Observasi</a></li>
                 <li><a href="modul.html">Modul Ajar</a></li>
@@ -35,7 +45,6 @@
                 <li><a href="dokumentasi.html">Dokumentasi</a></li>
               </ul>
             </li>
-
             <li><a href="refleksi.html">Refleksi</a></li>
             <li><a href="modelguru.html">Model Guru</a></li>
           </ul>
@@ -44,172 +53,284 @@
     </header>
 
     <main>
-      <section class="dokumentasi-section reveal">
-        <div class="container">
-          <div class="section-header">
-            <h1 class="page-title">Galeri <span>Dokumentasi</span></h1>
-            <p class="page-subtitle">Kumpulan momen dan kegiatan selama pelaksanaan Praktik Pengalaman Lapangan (PPL) satu SMAN 4 Yogyakarta</p>
+      <div class="container gallery-doc-section">
+        <div class="section-header reveal">
+          <h1>📸 Galeri Dokumentasi</h1>
+          <p>Kumpulan momen dan kegiatan selama pelaksanaan Praktik Pengalaman Lapangan (PPL) 1 <span class="neon-text">SMAN 4 Yogyakarta</span> — jejak digital perjalanan menjadi pendidik profesional.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- 1. Praktik Mengajar Kelas X -->
+          <div class="gallery-item reveal" data-img-src="Images/praktik1.jpeg">
+            <div class="gallery-img-wrapper">
+              <img class="gallery-img" src="Images/praktik1.jpeg" alt="Praktik Mengajar Kelas XE5" loading="lazy" />
+              <div class="img-overlay-cyber"></div>
+            </div>
+            <div class="gallery-info">
+              <h3>Praktik Mengajar Kelas X</h3>
+              <p>Praktik mengajar langsung di kelas XE5 dengan model pembelajaran <strong class="neon-text">PjBL (Project Based Learning)</strong>. Sesi interaktif dan diskusi kelompok menghasilkan karya kreatif siswa.</p>
+              <div class="doc-tag">#teaching_practice</div>
+            </div>
           </div>
 
-          <div class="gallery-grid">
-            <div class="gallery-item reveal">
-              <div class="img-wrapper">
-                <img src="Images/praktik1.jpeg" alt="Praktik Mengajar" />
-              </div>
-              <div class="gallery-caption">
-                <h3>Praktik Mengajar Kelas X</h3>
-                <p>Praktik mengajar langsung di kelas XE5 dengan model pembelajaran PjBL</p>
-              </div>
+          <!-- 2. Bimbingan Kelompok -->
+          <div class="gallery-item reveal" data-img-src="Images/bimbingan_dpl.jpeg">
+            <div class="gallery-img-wrapper">
+              <img class="gallery-img" src="Images/bimbingan_dpl.jpeg" alt="Bimbingan Kelompok bersama DPL" loading="lazy" />
+              <div class="img-overlay-cyber"></div>
             </div>
-
-            <div class="gallery-item reveal">
-              <div class="img-wrapper">
-                <img src="Images/bimbingan_dpl.jpeg" alt="Bimbingan Kelompok" />
-              </div>
-              <div class="gallery-caption">
-                <h3>Bimbingan Kelompok</h3>
-                <p>Bimbingan bersama DPL membahas terkait pembuatan Modul Ajar</p>
-              </div>
+            <div class="gallery-info">
+              <h3>Bimbingan Kelompok</h3>
+              <p>Bimbingan intensif bersama DPL membahas penyusunan Modul Ajar, perangkat pembelajaran, dan strategi asesmen. Suasana kolaboratif penuh inspirasi.</p>
+              <div class="doc-tag">#mentoring_session</div>
             </div>
+          </div>
 
-            <div class="gallery-item reveal">
-              <div class="img-wrapper">
-                <img src="Images/Observasi-lingkungan.jpeg" alt="Observasi Lingkungan" />
-              </div>
-              <div class="gallery-caption">
-                <h3>Observasi Sekolah</h3>
-                <p>Kegiatan pengenalan lingkungan dan budaya sekolah.</p>
-              </div>
+          <!-- 3. Observasi Sekolah -->
+          <div class="gallery-item reveal" data-img-src="Images/Observasi-lingkungan.jpeg">
+            <div class="gallery-img-wrapper">
+              <img class="gallery-img" src="Images/Observasi-lingkungan.jpeg" alt="Observasi Sekolah SMAN 4 Yogyakarta" loading="lazy" />
+              <div class="img-overlay-cyber"></div>
             </div>
-
-            <div class="gallery-item reveal">
-              <div class="img-wrapper">
-                <img src="Images/evaluasi.jpeg" alt="Evaluasi Pembelajaran" />
-              </div>
-              <div class="gallery-caption">
-                <h3>Asesmen Pembelajaran</h3>
-                <p>Melaksanakan asesmen pembelajaran menggunakan media interaktif.</p>
-              </div>
+            <div class="gallery-info">
+              <h3>Observasi Sekolah</h3>
+              <p>Kegiatan pengenalan lingkungan, budaya belajar, dan tata kelola sekolah. Pendalaman karakteristik peserta didik serta identifikasi sarana prasarana.</p>
+              <div class="doc-tag">#school_culture</div>
             </div>
+          </div>
 
-            <div class="gallery-item reveal">
-              <div class="img-wrapper">
-                <img src="Images/patbheboys.jpeg" alt="Diskusi Guru Pamong" />
-              </div>
-              <div class="gallery-caption">
-                <h3>Patbhe Boys</h3>
-                <p>Para Pria tampan ppl patbhe PPG Prajab</p>
-              </div>
+          <!-- 4. Asesmen Pembelajaran -->
+          <div class="gallery-item reveal" data-img-src="Images/patbheboys.jpeg">
+            <div class="gallery-img-wrapper">
+              <img class="gallery-img" src="Images/patbheboys.jpeg" alt="Asesmen pembelajaran media interaktif" loading="lazy" />
+              <div class="img-overlay-cyber"></div>
             </div>
+            <div class="gallery-info">
+              <h3>Asesmen Pembelajaran</h3>
+              <p>Melaksanakan asesmen menggunakan platform digital interaktif, quiz online & gamifikasi. Meningkatkan motivasi dan partisipasi aktif siswa.</p>
+              <div class="doc-tag">#digital_assessment</div>
+            </div>
+          </div>
 
-            <div class="gallery-item reveal">
-              <div class="img-wrapper">
-                <img src="Images/foto_bersama.jpeg" alt="Foto Bersama" />
-              </div>
-              <div class="gallery-caption">
-                <h3>Foto Bersama</h3>
-                <p>Foto bersama Guru Pamong dan Dosen Pembimbing Lapang</p>
-              </div>
+          <!-- 5. Patbhe Boys (Para Pria Tampan PPL) -->
+          <div class="gallery-item reveal" data-img-src="Images/evaluasi.jpeg">
+            <div class="gallery-img-wrapper">
+              <img class="gallery-img" src="Images/evaluasi.jpeg" alt="Patbhe Boys rombongan PPL" loading="lazy" />
+              <div class="img-overlay-cyber"></div>
+            </div>
+            <div class="gallery-info">
+              <h3>Patbhe Boys</h3>
+              <p>Para pria tampan PPL Patbhe PPG Prajab. Solidaritas, tawa, dan semangat kolaborasi dalam setiap tantangan mengajar.</p>
+              <div class="doc-tag">#brotherhood_ppl</div>
+            </div>
+          </div>
+
+          <!-- 6. Foto Bersama Guru Pamong & DPL -->
+          <div class="gallery-item reveal" data-img-src="Images/foto_bersama.jpeg">
+            <div class="gallery-img-wrapper">
+              <img class="gallery-img" src="Images/foto_bersama.jpeg" alt="Foto bersama Guru Pamong dan Dosen Pembimbing" loading="lazy" />
+              <div class="img-overlay-cyber"></div>
+            </div>
+            <div class="gallery-info">
+              <h3>Foto Bersama</h3>
+              <p>Momen berharga bersama Guru Pamong dan Dosen Pembimbing Lapang. Ungkapan terima kasih atas bimbingan yang tulus selama PPL 1.</p>
+              <div class="doc-tag">#gratitude</div>
             </div>
           </div>
         </div>
-      </section>
+
+        <div class="reveal" style="text-align: center; margin-top: 40px">
+          <span class="cyber-badge" style="background: rgba(168, 85, 247, 0.2)">⟡ setiap frame adalah perjuangan ⟡</span>
+        </div>
+      </div>
     </main>
 
-    <footer class="site-footer">
-      <div class="container footer-container">
-        <div class="footer-col brand-col">
-          <h3>E-Portofolio<span> PPG.</span></h3>
-          <p>Ruang rekam jejak Praktik Pengalaman Lapangan (PPL) 1. Disusun sebagai dokumentasi dan refleksi perjalanan menjadi guru profesional.</p>
-        </div>
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-modal">
+      <span class="close-lightbox">&times;</span>
+      <div class="lightbox-content">
+        <img id="lightboxImg" src="" alt="Preview Dokumentasi" />
+      </div>
+    </div>
 
-        <div class="footer-col links-col">
-          <h4>Navigasi Cepat</h4>
+    <footer class="cyber-footer">
+      <div class="footer-glow-line"></div>
+      <div class="container footer-content reveal">
+        <div class="footer-brand">
+          <h2 class="logo">E-Portofolio<span class="neon-text flicker"> PPG.</span></h2>
+          <p class="cyber-desc">Ruang rekam jejak Praktik Pengalaman Lapangan (PPL) 1. Disusun sebagai dokumentasi dan refleksi perjalanan menjadi guru profesional.</p>
+          <div class="hologram-barcode">
+            <span>||| | || ||| || | |||| ||</span>
+            <p>ID: IFA-2026-SKOM</p>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>NAVIGASI CEPAT</h4>
           <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="profil.html">Profil Saya</a></li>
-            <li><a href="observasi.html">Hasil Observasi</a></li>
-            <li><a href="modul.html">Modul Ajar & LKPD</a></li>
-            <li><a href="lkpd.html">LKPD</a></li>
+            <li><a href="index.html" class="glitch-hover">Beranda</a></li>
+            <li><a href="profil.html" class="glitch-hover">Profil Saya</a></li>
+            <li><a href="observasi.html" class="glitch-hover">Hasil Observasi</a></li>
+            <li><a href="modul.html" class="glitch-hover">Modul Ajar</a></li>
+            <li><a href="lkpd.html" class="glitch-hover">LKPD</a></li>
           </ul>
         </div>
-
-        <div class="footer-col contact-col">
-          <h4>Lokasi LPTK</h4>
-          <p>📍 Universitas Negeri Yogyakarta</p>
-
-          <div class="map-container">
-            <iframe
-              src="https://maps.google.com/maps?q=Universitas%20Negeri%20Yogyakarta&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              width="100%"
-              height="150"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            >
-            </iframe>
+        <div class="footer-social">
+          <h4>LOKASI & KONTAK</h4>
+          <div class="cyber-location">
+            <span>📍 LOKASI LPTK</span>
+            <strong>Universitas Negeri Yogyakarta</strong>
+            <div class="map-wrapper">
+              <iframe
+                src="https://maps.google.com/maps?q=Universitas+Negeri+Yogyakarta&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="130"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
           </div>
-
-          <div class="social-links">
-            <a href="mailto:ilyasfandhianggara@gmail.com">Email</a>
-            <a href="https://www.instagram.com/fandhidk17/" target="_blank">Instagram</a>
+          <div class="social-grid">
+            <a href="mailto:ilyasfandhianggara@gmail.com" class="social-btn"><span class="btn-bracket">[</span> EML <span class="btn-bracket">]</span><span class="btn-label">Email</span></a>
+            <a href="https://www.instagram.com/fandhidk17/" target="_blank" class="social-btn"><span class="btn-bracket">[</span> IG <span class="btn-bracket">]</span><span class="btn-label">Instagram</span></a>
           </div>
         </div>
       </div>
-
       <div class="footer-bottom">
-        <div class="container">
-          <p>© 2026 Ilyas Fandhi Anggara - E-Portofolio PPL 1 PPG. Semua Hak Cipta Dilindungi.</p>
+        <div class="container bottom-flex">
+          <p>&copy; 2026 Ilyas Fandhi Anggara, S.Kom. E-Portofolio PPG.</p>
+          <div class="system-status"><span class="status-dot pulse-dot"></span> SYSTEM.ONLINE</div>
         </div>
       </div>
     </footer>
 
     <script>
-      const menu = document.querySelector("#mobile-menu");
-      const menuLinks = document.querySelector(".nav-links");
-      const dropdown = document.querySelector(".dropdown");
-      const dropbtn = document.querySelector(".dropbtn");
-
-      // 1. Fungsi Toggle Hamburger Menu
-      menu.addEventListener("click", function () {
-        menuLinks.classList.toggle("active");
-        menu.classList.toggle("is-active");
+      // Hamburger Menu Mobile
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navLinks = document.getElementById("nav-links");
+      mobileMenu.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
       });
 
-      // 2. Fungsi Dropdown khusus Mobile
-      dropbtn.addEventListener("click", function (e) {
-        if (window.innerWidth <= 768) {
-          e.preventDefault();
-          dropdown.classList.toggle("active");
-        }
-      });
-
-      // 3. Menutup menu jika link diklik
-      document.querySelectorAll(".nav-links a:not(.dropbtn)").forEach((n) =>
-        n.addEventListener("click", () => {
-          menuLinks.classList.remove("active");
-          menu.classList.remove("is-active");
-          dropdown.classList.remove("active");
-        }),
-      );
-
-      // 4. Animasi Scroll Reveal
+      // Scroll Reveal Animasi
       function reveal() {
         var reveals = document.querySelectorAll(".reveal");
         for (var i = 0; i < reveals.length; i++) {
           var windowHeight = window.innerHeight;
           var elementTop = reveals[i].getBoundingClientRect().top;
           var elementVisible = 100;
-
           if (elementTop < windowHeight - elementVisible) {
             reveals[i].classList.add("active");
           }
         }
       }
-
       window.addEventListener("scroll", reveal);
-      reveal(); // Jalankan sekali saat dimuat
+      reveal();
+
+      // Cyber Cursor Desktop
+      const cursorDot = document.getElementById("cursor-dot");
+      const cursorRing = document.getElementById("cursor-ring");
+      const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+      if (isDesktop) {
+        window.addEventListener("mousemove", (e) => {
+          cursorDot.style.left = `${e.clientX}px`;
+          cursorDot.style.top = `${e.clientY}px`;
+          cursorRing.animate({ left: `${e.clientX}px`, top: `${e.clientY}px` }, { duration: 150, fill: "forwards" });
+        });
+        const interactables = document.querySelectorAll("a, button, .social-btn, .nav-links li, .gallery-item, .close-lightbox");
+        interactables.forEach((el) => {
+          el.addEventListener("mouseenter", () => document.body.classList.add("cursor-hover-active"));
+          el.addEventListener("mouseleave", () => document.body.classList.remove("cursor-hover-active"));
+        });
+      }
+
+      // Neural Data Stream Particle
+      (function () {
+        const canvas = document.getElementById("neural-data-particle");
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        let width,
+          height,
+          particles = [];
+        const chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF<>/{}[]|?*#@%&";
+        const PARTICLE_COUNT = 80;
+        function resizeCanvas() {
+          width = window.innerWidth;
+          height = window.innerHeight;
+          canvas.width = width;
+          canvas.height = height;
+          initParticles();
+        }
+        class Particle {
+          constructor() {
+            this.reset(true);
+          }
+          reset(initial = false) {
+            this.x = Math.random() * width;
+            this.y = initial ? Math.random() * height : -10;
+            this.char = chars[Math.floor(Math.random() * chars.length)];
+            this.speed = Math.random() * 1.2 + 0.4;
+            this.fontSize = Math.random() * 14 + 10;
+            this.opacity = Math.random() * 0.5 + 0.3;
+            const hue = Math.random() > 0.5 ? 185 : 270;
+            this.color = `hsla(${hue}, 90%, 70%, ${this.opacity})`;
+          }
+          update() {
+            this.y += this.speed;
+            if (this.y > height + 20) this.reset();
+          }
+          draw() {
+            ctx.font = `${this.fontSize}px "Courier New", monospace`;
+            ctx.fillStyle = this.color;
+            ctx.fillText(this.char, this.x, this.y);
+          }
+        }
+        function initParticles() {
+          particles = [];
+          for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
+        }
+        function animateParticles() {
+          ctx.clearRect(0, 0, width, height);
+          particles.forEach((p) => {
+            p.update();
+            p.draw();
+          });
+          requestAnimationFrame(animateParticles);
+        }
+        window.addEventListener("resize", resizeCanvas);
+        resizeCanvas();
+        animateParticles();
+      })();
+
+      // Lightbox Cyber
+      const modal = document.getElementById("lightboxModal");
+      const lightboxImg = document.getElementById("lightboxImg");
+      const closeLightbox = document.querySelector(".close-lightbox");
+      const galleryItems = document.querySelectorAll(".gallery-item");
+      galleryItems.forEach((item) => {
+        item.addEventListener("click", (e) => {
+          const imgElement = item.querySelector(".gallery-img");
+          if (imgElement) {
+            let highResSrc = item.getAttribute("data-img-src");
+            if (!highResSrc) highResSrc = imgElement.src;
+            lightboxImg.src = highResSrc;
+            modal.classList.add("active");
+            document.body.style.overflow = "hidden";
+          }
+        });
+      });
+      function closeModal() {
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+      closeLightbox.addEventListener("click", closeModal);
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("active")) closeModal();
+      });
     </script>
   </body>
 </html>
