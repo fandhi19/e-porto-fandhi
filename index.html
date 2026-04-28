@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="Css/style.css" />
+    <link rel="shortcut icon" href="Images/logo_uny.png" type="image/x-icon" />
   </head>
   <body>
     <div class="cyber-cursor-dot" id="cursor-dot"></div>
@@ -27,6 +28,8 @@
       <div class="orb orb-1"></div>
       <div class="orb orb-2"></div>
     </div>
+
+    <canvas id="neural-data-particle"></canvas>
 
     <header>
       <div class="container header-container">
@@ -66,7 +69,7 @@
           <p>Saya <strong>Ilyas Fandhi Anggara, S.Kom</strong>, calon guru profesional yang berdedikasi dalam menciptakan pembelajaran inovatif dan bermakna.</p>
           <div class="hero-btns">
             <a href="profil.html" class="btn btn-primary">Eksplorasi Profil</a>
-            <a href="#dokumen" class="btn btn-outline">Lihat Artefak</a>
+            <a href="modelguru.html" class="btn btn-outline">Lihat Artefak</a>
           </div>
         </div>
 
@@ -432,6 +435,93 @@
           });
         });
       }
+      // =============================================
+      // NEURAL DATA STREAM PARTICLE (DIGITAL RAIN)
+      // =============================================
+      (function () {
+        const canvas = document.getElementById("neural-data-particle");
+        if (!canvas) return; // Berhenti jika canvas tidak ada (fallback)
+        const ctx = canvas.getContext("2d");
+
+        let width, height;
+        let particles = [];
+
+        // Karakter acak ala Matrix / Data Stream
+        const chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF<>/{}[]|?*#@%&";
+
+        // Konfigurasi partikel
+        const PARTICLE_COUNT = 80; // Jumlah titik/partikel
+        const FONT_SIZE = 14;
+        const SPEED_MIN = 0.4;
+        const SPEED_MAX = 1.2;
+
+        function resizeCanvas() {
+          width = window.innerWidth;
+          height = window.innerHeight;
+          canvas.width = width;
+          canvas.height = height;
+          initParticles(); // Regenerasi partikel saat resize
+        }
+
+        class Particle {
+          constructor() {
+            this.reset(true);
+          }
+
+          // Reset posisi & properti (digunakan saat inisialisasi dan saat partikel keluar layar)
+          reset(initial = false) {
+            this.x = Math.random() * width;
+            // Jika partikel baru (inisialisasi), sebarkan secara vertikal agar tidak numpuk di atas
+            this.y = initial ? Math.random() * height : -10;
+            this.char = chars[Math.floor(Math.random() * chars.length)];
+            this.speed = Math.random() * (SPEED_MAX - SPEED_MIN) + SPEED_MIN;
+            this.fontSize = Math.random() * 14 + 10; // Variasi ukuran
+            this.opacity = Math.random() * 0.5 + 0.3;
+            // Warna kebiruan/ungu acak
+            const hue = Math.random() > 0.5 ? 185 : 270; // Cyan atau Ungu
+            this.color = `hsla(${hue}, 90%, 70%, ${this.opacity})`;
+          }
+
+          update() {
+            this.y += this.speed;
+            // Reset jika melewati layar
+            if (this.y > height + 20) {
+              this.reset();
+            }
+          }
+
+          draw() {
+            ctx.font = `${this.fontSize}px "Courier New", monospace`;
+            ctx.fillStyle = this.color;
+            ctx.fillText(this.char, this.x, this.y);
+          }
+        }
+
+        function initParticles() {
+          particles = [];
+          for (let i = 0; i < PARTICLE_COUNT; i++) {
+            particles.push(new Particle());
+          }
+        }
+
+        function animateParticles() {
+          ctx.clearRect(0, 0, width, height);
+
+          for (let p of particles) {
+            p.update();
+            p.draw();
+          }
+
+          requestAnimationFrame(animateParticles);
+        }
+
+        // Event Listener
+        window.addEventListener("resize", resizeCanvas);
+
+        // Inisialisasi Awal & Mulai Animasi
+        resizeCanvas();
+        animateParticles();
+      })();
     </script>
   </body>
 </html>

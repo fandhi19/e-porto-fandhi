@@ -50,6 +50,18 @@ body {
   line-height: 1.6;
 }
 
+/* Canvas Partikel Neural, diletakkan di belakang semua konten */
+#neural-data-particle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -3; /* Di belakang grid, orbs, dan konten */
+  pointer-events: none;
+  opacity: 0.4;
+}
+
 /* =========================================
    TERMINAL BOOT-UP PRELOADER
    ========================================= */

@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>E-Portofolio PPG | Ilyas Fandhi Anggara, S.Kom | Digital Educator Interface</title>
+    <title>Profil Mahasiswa | Ilyas Fandhi Anggara | E-Portofolio PPG</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="Css/profil.css" />
+    <link rel="shortcut icon" href="Images/logo_uny.png" type="image/x-icon" />
   </head>
   <body>
     <div class="cyber-cursor-dot" id="cursor-dot"></div>
@@ -20,6 +21,8 @@
       <div class="orb orb-1"></div>
       <div class="orb orb-2"></div>
     </div>
+
+    <canvas id="neural-data-particle"></canvas>
 
     <header>
       <div class="container header-container">
@@ -97,8 +100,9 @@
 
       <section class="section about-section" style="padding: 70px 0">
         <div class="container reveal">
-          <div class="section-header" style="margin-bottom: 30px">
-            <h2 class="title" style="font-size: 2.2rem"><span class="primary-color">//</span> ✨ MENGENAL_LEBIH_DEKAT</h2>
+          <div class="section-header text-center" style="margin-bottom: 60px">
+            <h2 class="section-title glitch-text" data-text="JEJAK PENDIDIKAN" style="font-size: 2.5rem; text-transform: uppercase; margin: 0">MENGENAL LEBIH DEKAT</h2>
+            <div class="title-divider"></div>
           </div>
 
           <div class="about-terminal-wrapper">
@@ -382,6 +386,93 @@
           });
         });
       }
+      // =============================================
+      // NEURAL DATA STREAM PARTICLE (DIGITAL RAIN)
+      // =============================================
+      (function () {
+        const canvas = document.getElementById("neural-data-particle");
+        if (!canvas) return; // Berhenti jika canvas tidak ada (fallback)
+        const ctx = canvas.getContext("2d");
+
+        let width, height;
+        let particles = [];
+
+        // Karakter acak ala Matrix / Data Stream
+        const chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF<>/{}[]|?*#@%&";
+
+        // Konfigurasi partikel
+        const PARTICLE_COUNT = 80; // Jumlah titik/partikel
+        const FONT_SIZE = 14;
+        const SPEED_MIN = 0.4;
+        const SPEED_MAX = 1.2;
+
+        function resizeCanvas() {
+          width = window.innerWidth;
+          height = window.innerHeight;
+          canvas.width = width;
+          canvas.height = height;
+          initParticles(); // Regenerasi partikel saat resize
+        }
+
+        class Particle {
+          constructor() {
+            this.reset(true);
+          }
+
+          // Reset posisi & properti (digunakan saat inisialisasi dan saat partikel keluar layar)
+          reset(initial = false) {
+            this.x = Math.random() * width;
+            // Jika partikel baru (inisialisasi), sebarkan secara vertikal agar tidak numpuk di atas
+            this.y = initial ? Math.random() * height : -10;
+            this.char = chars[Math.floor(Math.random() * chars.length)];
+            this.speed = Math.random() * (SPEED_MAX - SPEED_MIN) + SPEED_MIN;
+            this.fontSize = Math.random() * 14 + 10; // Variasi ukuran
+            this.opacity = Math.random() * 0.5 + 0.3;
+            // Warna kebiruan/ungu acak
+            const hue = Math.random() > 0.5 ? 185 : 270; // Cyan atau Ungu
+            this.color = `hsla(${hue}, 90%, 70%, ${this.opacity})`;
+          }
+
+          update() {
+            this.y += this.speed;
+            // Reset jika melewati layar
+            if (this.y > height + 20) {
+              this.reset();
+            }
+          }
+
+          draw() {
+            ctx.font = `${this.fontSize}px "Courier New", monospace`;
+            ctx.fillStyle = this.color;
+            ctx.fillText(this.char, this.x, this.y);
+          }
+        }
+
+        function initParticles() {
+          particles = [];
+          for (let i = 0; i < PARTICLE_COUNT; i++) {
+            particles.push(new Particle());
+          }
+        }
+
+        function animateParticles() {
+          ctx.clearRect(0, 0, width, height);
+
+          for (let p of particles) {
+            p.update();
+            p.draw();
+          }
+
+          requestAnimationFrame(animateParticles);
+        }
+
+        // Event Listener
+        window.addEventListener("resize", resizeCanvas);
+
+        // Inisialisasi Awal & Mulai Animasi
+        resizeCanvas();
+        animateParticles();
+      })();
     </script>
   </body>
 </html>

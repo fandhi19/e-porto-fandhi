@@ -1,179 +1,464 @@
-/* --- Pengaturan Dasar & Variabel Warna Dark Tech --- */
+/* =========================================
+   CUSTOM CYBER SCROLLBAR
+   ========================================= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050511; /* Warna background gelap web-mu */
+  border-left: 1px solid rgba(0, 240, 255, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary); /* Warna Cyan Neon */
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-purple); /* Berubah ungu saat digeser */
+}
+
+/* =========================================
+   VARIABEL & RESET DASAR (ULTRA-CYBERPUNK)
+   ========================================= */
 :root {
-  --primary-color: #0ea5e9;
-  --primary-hover: #38bdf8;
-  --secondary-color: #8b5cf6;
-  --bg-color: #0f172a;
-  --card-bg: rgba(30, 41, 59, 0.7);
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --border-color: rgba(255, 255, 255, 0.1);
-  --glass-bg: rgba(15, 23, 42, 0.85);
-  --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --bg-dark: #050511; /* Deep Navy Black */
+  --card-bg: rgba(20, 20, 35, 0.7); /* Kaca Transparan */
+  --primary: #00f0ff; /* Cyan Neon Inten */
+  --accent: #ff003c; /* Cyberpunk Red/Magenta Inten */
+  --accent-purple: #a855f7; /* Ungu Neon Inten */
+  --text-main: #f1f5f9;
+  --text-muted: #8b949e;
+  --white: #ffffff;
+  --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+  --transition-smooth: all 0.8s cubic-bezier(0.5, 0, 0, 1); /* Ultra-smooth transition */
+  --font-main: "Plus Jakarta Sans", sans-serif;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-main);
 }
-
 html {
   scroll-behavior: smooth;
 }
-
 body {
-  background-color: var(--bg-color);
+  background-color: var(--bg-dark);
   color: var(--text-main);
-  line-height: 1.7;
   overflow-x: hidden;
-  background-image: radial-gradient(circle at 15% 50%, rgba(14, 165, 233, 0.05), transparent 25%), radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.05), transparent 25%);
+  line-height: 1.6;
+}
+
+/* Animasi Kursor Berkedip */
+.cursor {
+  display: inline-block;
+  width: 12px;
+  background: #00ff66;
+  color: #00ff66;
+  animation: blinkCursor 0.8s infinite;
+  box-shadow: 0 0 10px #00ff66;
+}
+
+@keyframes blinkCursor {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Class untuk mengunci scroll saat loading */
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* Class untuk efek BOOM dan menghilang */
+.preloader-hidden {
+  opacity: 0;
+  pointer-events: none; /* Supaya tidak bisa diklik lagi */
+  transform: scale(1.1); /* Sedikit membesar saat hilang */
+  filter: blur(10px);
+}
+
+/* =========================================
+   CUSTOM CYBER CURSOR & RADAR
+   ========================================= */
+/* Sembunyikan kursor bawaan Windows/Mac di layar besar */
+@media (min-width: 768px) {
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  .glitch-hover,
+  .social-btn {
+    cursor: none !important;
+  }
+}
+
+/* Titik Inti (Neon Cyan) */
+.cyber-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: var(--primary); /* Cyan Neon */
+  border-radius: 50%;
+  pointer-events: none; /* PENTING: Agar tidak menghalangi klik mouse */
+  z-index: 100000;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px var(--primary);
+  transition:
+    background-color 0.3s,
+    box-shadow 0.3s;
+}
+
+/* Cincin Radar (Crosshair) */
+.cyber-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 35px;
+  height: 35px;
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+  /* Efek delay / mengekor yang bikin mulus banget */
+  transition:
+    width 0.3s,
+    height 0.3s,
+    border-color 0.3s,
+    background-color 0.3s;
+}
+
+/* Garis Bidik (Kiri-Kanan & Atas-Bawah) di Cincin Radar */
+.cyber-cursor-ring::before,
+.cyber-cursor-ring::after {
+  content: "";
+  position: absolute;
+  background: rgba(0, 240, 255, 0.5);
+  transition: background 0.3s;
+}
+/* Garis Horizontal */
+.cyber-cursor-ring::before {
+  top: 50%;
+  left: -6px;
+  right: -6px;
+  height: 1px;
+  transform: translateY(-50%);
+}
+/* Garis Vertikal */
+.cyber-cursor-ring::after {
+  left: 50%;
+  top: -6px;
+  bottom: -6px;
+  width: 1px;
+  transform: translateX(-50%);
+}
+
+/* =========================================
+   EFEK SAAT KURSOR MENYENTUH TOMBOL / LINK
+   ========================================= */
+.cursor-hover-active .cyber-cursor-dot {
+  background-color: var(--accent-purple);
+  box-shadow: 0 0 10px var(--accent-purple);
+}
+
+.cursor-hover-active .cyber-cursor-ring {
+  width: 55px;
+  height: 55px;
+  border-color: var(--accent-purple);
+  background-color: rgba(184, 0, 255, 0.05); /* Sedikit nyala ungu di dalam cincin */
+  animation: rotateRadar 3s linear infinite; /* Radar berputar */
+}
+
+.cursor-hover-active .cyber-cursor-ring::before,
+.cursor-hover-active .cyber-cursor-ring::after {
+  background: var(--accent-purple);
+}
+
+@keyframes rotateRadar {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Sembunyikan Kursor Custom di HP/Tablet agar tidak error saat disentuh jari */
+@media (max-width: 767px) {
+  .cyber-cursor-dot,
+  .cyber-cursor-ring {
+    display: none !important;
+  }
 }
 
 .container {
   width: 90%;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: auto;
 }
 
-/* --- Header Glassmorphism Dark --- */
-header {
-  background-color: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-  position: sticky;
+/* =========================================
+   EFEK WOW: SCANLINES & SCROLL REVEAL AUTO
+   ========================================= */
+/* Efek monitor lama di seluruh layar (DIPERTJAM) */
+.scanlines {
+  position: fixed;
   top: 0;
-  z-index: 100;
-  border-bottom: 1px solid var(--border-color);
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.6;
 }
 
+/* Animasi Muncul Halus Saat Di-scroll (DIPERHALUS WOW) */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: var(--transition-smooth);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================
+   BACKGROUND ANIMASI BERGERAK TOTAL (WOW! Effect)
+   ========================================= */
+/* Efek Cyber Grid & Data Streams Berjalan (DIPERBAIKI WOW) */
+.bg-grid-cyber {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 150vh;
+  background-image: linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px), radial-gradient(circle, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
+  background-size:
+    40px 40px,
+    40px 40px,
+    80px 80px;
+  z-index: -2;
+  transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+  animation: gridMoveCyber 10s linear infinite;
+  opacity: 0.8;
+}
+@keyframes gridMoveCyber {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 40px;
+  }
+}
+
+/* Orbs Bercahaya Melayang di Belakang (DIPERBAIKI WOW) */
+.bg-gradient-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  filter: blur(100px);
+}
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  animation: floatOrb 15s ease-in-out infinite alternate;
+}
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: rgba(0, 240, 255, 0.15);
+  top: 10%;
+  left: -5%;
+}
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: rgba(168, 85, 247, 0.1);
+  bottom: 10%;
+  right: -10%;
+  animation-delay: -5s;
+}
+@keyframes floatOrb {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(150px, 100px) scale(1.2);
+  }
+}
+
+/* =========================================
+   HEADER, NAVBAR, NEON TEXT & DROPDOWN (WOW! DIPERBAIKI)
+   ========================================= */
+header {
+  background: rgba(5, 5, 17, 0.85);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 0;
+  padding: 20px 0;
 }
-
 .logo-wrapper {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column;
+  align-items: flex-start;
 }
-
-.logo-img {
-  width: 50px;
-  height: auto;
-  transition: var(--transition);
-  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
-}
-
-.logo-img:hover {
-  transform: rotate(-10deg) scale(1.1);
-  filter: drop-shadow(0 0 10px var(--primary-color));
-}
-
 .logo {
-  font-size: 22px;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--white);
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+.cyber-badge {
+  font-size: 10px;
   font-weight: 700;
-  color: var(--text-main);
-  letter-spacing: 0.5px;
+  color: var(--primary);
+  letter-spacing: 1.5px;
+  margin-top: -3px;
+  text-transform: uppercase;
+  background: rgba(0, 240, 255, 0.1);
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 240, 255, 0.2);
 }
 
-.logo span {
-  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Neon Text Global (DIPERTJAM) */
+.neon-text {
+  color: var(--primary);
+  text-shadow:
+    0 0 10px rgba(0, 240, 255, 0.4),
+    0 0 20px rgba(0, 240, 255, 0.2),
+    0 0 30px rgba(168, 85, 247, 0.15);
+}
+
+/* Teks Hanya Outline (Untuk Teks Belakang) */
+.outline-text {
+  -webkit-text-stroke: 1px var(--primary);
+  color: transparent;
+  text-shadow: none;
+}
+
+/* Animasi Kedip Neon (Korslet DIPERBAIKI WOW) */
+.flicker {
+  animation: flickerAnimWOW 4s infinite alternate;
+}
+@keyframes flickerAnimWOW {
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
+    opacity: 1;
+    color: var(--primary);
+    text-shadow:
+      0 0 10px rgba(0, 240, 255, 0.4),
+      0 0 20px rgba(0, 240, 255, 0.2);
+  }
+  20%,
+  24%,
+  55% {
+    opacity: 0.5;
+    color: #1a5663;
+    text-shadow: none;
+  }
 }
 
 .nav-links {
-  list-style: none;
   display: flex;
-  gap: 25px;
+  gap: 35px;
+  list-style: none;
   align-items: center;
 }
-
 .nav-links a {
   text-decoration: none;
-  color: var(--text-main);
-  font-weight: 500;
+  color: var(--text-muted);
+  font-weight: 600;
   font-size: 15px;
-  transition: var(--transition);
   position: relative;
+  transition: color 0.3s ease;
 }
-
-.nav-links a::after {
+.nav-links > li > a::after {
   content: "";
   position: absolute;
   width: 0;
   height: 2px;
+  background: var(--primary);
   bottom: -5px;
   left: 0;
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-  transition: var(--transition);
+  transition: width 0.3s ease;
+  box-shadow: 0 0 8px var(--primary);
 }
-
-.nav-links a:hover::after {
-  width: 100%;
-  box-shadow: 0 0 8px var(--primary-color);
-}
-
 .nav-links a:hover {
-  color: var(--primary-hover);
+  color: var(--white);
+}
+.nav-links > li > a:hover::after {
+  width: 100%;
 }
 
-/* Dropdown Modern */
+/* CYBER DROPDOWN (WOW! Effekt slide & glow) */
 .dropdown {
   position: relative;
+  display: inline-block;
 }
-
-.dropbtn {
-  gap: 5px;
-  cursor: pointer;
+.dropbtn .arrow {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+/* Panah berputar saat di-hover */
+.dropdown:hover .arrow {
+  transform: rotate(180deg);
+  color: var(--primary);
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #1e293b;
+  top: 120%;
+  left: -20px;
+  background: rgba(10, 10, 25, 0.95);
+  backdrop-filter: blur(15px);
   min-width: 220px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
   border-radius: 12px;
-  top: 100%;
-  left: 0;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(0, 240, 255, 0.15);
+  padding: 10px 0;
   z-index: 1000;
-  padding: 15px 0;
-  margin-top: 5px;
   list-style: none;
-  border: 1px solid var(--border-color);
 }
-
-.dropdown-content li a {
-  color: var(--text-muted);
-  padding: 10px 25px;
-  display: block;
-  font-size: 14px;
-}
-
-.dropdown-content li a::after {
-  display: none;
-}
-
-.dropdown-content li a:hover {
-  background-color: rgba(14, 165, 233, 0.1);
-  color: var(--primary-color);
-  padding-left: 32px;
-  font-weight: 600;
-  border-left: 3px solid var(--primary-color);
-}
-
+/* Muncul Halus & Geser (Slide) */
 .dropdown:hover .dropdown-content {
   display: block;
-  animation: fadeInDropdown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: dropSlideWOW 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
-
-@keyframes fadeInDropdown {
+@keyframes dropSlideWOW {
   from {
     opacity: 0;
     transform: translateY(-15px) scale(0.95);
@@ -184,361 +469,642 @@ header {
   }
 }
 
-/* --- Menu Mobile --- */
+.dropdown-content li a {
+  color: var(--text-muted);
+  padding: 12px 25px;
+  display: block;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+}
+.dropdown-content li a::after {
+  display: none;
+} /* Hilangkan garis bawah default nav */
+.dropdown-content li a:hover {
+  background: rgba(0, 240, 255, 0.08);
+  color: var(--primary);
+  padding-left: 30px;
+  border-left: 3px solid var(--primary);
+}
+
 .menu-toggle {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  gap: 6px;
+  gap: 5px;
 }
-
-.bar {
-  width: 26px;
+.menu-toggle .bar {
+  width: 25px;
   height: 3px;
-  background-color: var(--text-main);
-  border-radius: 3px;
-  transition: var(--transition);
+  background-color: var(--white);
 }
 
+/* ANIMASI MELAYANG HERO IMAGE TOTAL (WOW DIPERHALUS) */
+.levitate-anim {
+  animation: levitateWOW 6s ease-in-out infinite;
+}
+@keyframes levitateWOW {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25px);
+  } /* Melayang ke atas 25px */
+}
+
+/* =========================================
+   FOOTER TERMINAL (WOW! CYBERPUNK EDITION)
+   ========================================= */
+.cyber-footer {
+  background: rgba(5, 5, 17, 0.95);
+  backdrop-filter: blur(20px);
+  position: relative;
+  margin-top: 100px;
+  border-top: 1px solid rgba(0, 240, 255, 0.15);
+  z-index: 10;
+  overflow: hidden;
+}
+
+/* Garis Cahaya di batas atas footer */
+.footer-glow-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), var(--accent-purple), transparent);
+  opacity: 0.5;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 90px;
+  padding: 70px 0 50px 0;
+}
+
+/* Branding Column */
+.cyber-desc {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin: 15px 0 25px;
+  line-height: 1.8;
+  max-width: 400px;
+}
+.hologram-barcode {
+  display: inline-block;
+  padding: 10px 15px;
+  border-left: 3px solid var(--primary);
+  background: rgba(0, 240, 255, 0.05);
+  color: var(--primary);
+}
+.hologram-barcode span {
+  font-family: monospace;
+  font-size: 18px;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+.hologram-barcode p {
+  font-size: 10px;
+  margin-top: 5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+
+/* Headers di Footer */
+.footer-links h4,
+.footer-social h4 {
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.primary-color {
+  color: var(--primary);
+  margin-right: 5px;
+}
+
+/* Links Navigasi */
+.footer-links ul {
+  list-style: none;
+}
+.footer-links li {
+  margin-bottom: 15px;
+}
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+}
+.footer-links a:hover {
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+/* Tombol Sosial Media Terminal Style */
+.social-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+.social-btn {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-family: monospace;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  width: max-content;
+}
+.btn-bracket {
+  color: var(--text-muted);
+  margin: 0 5px;
+  transition: color 0.3s ease;
+}
+.btn-label {
+  font-family: var(--font-main);
+  margin-left: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.social-btn:hover {
+  background: rgba(0, 240, 255, 0.08);
+  border-color: rgba(0, 240, 255, 0.3);
+  transform: translateX(5px);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+}
+.social-btn:hover .btn-bracket {
+  color: var(--primary);
+}
+.social-btn:hover .btn-label {
+  color: var(--white);
+}
+
+/* Footer Bottom (Copyright & System Status) */
+.footer-bottom {
+  background: #020208;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  padding: 20px 0;
+}
+.bottom-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.bottom-flex p {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin: 0;
+}
+
+.system-status {
+  display: flex;
+  align-items: center;
+  font-family: monospace;
+  font-size: 13px;
+  color: #00ff66;
+  letter-spacing: 1px;
+}
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #00ff66;
+  border-radius: 50%;
+  margin-right: 10px;
+  box-shadow: 0 0 10px #00ff66;
+}
+.pulse-dot {
+  animation: pulseGreen 2s infinite;
+}
+
+/* =========================================
+   CYBER LOCATION & TACTICAL MAP
+   ========================================= */
+.cyber-location {
+  background: rgba(0, 240, 255, 0.03);
+  border-left: 3px solid var(--primary);
+  padding: 12px 15px;
+  margin-bottom: 25px;
+  font-size: 14px;
+  color: var(--white);
+  border-radius: 0 8px 8px 0;
+  transition: all 0.3s ease;
+}
+.cyber-location:hover {
+  background: rgba(0, 240, 255, 0.08);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
+}
+.cyber-location span {
+  display: block;
+  font-size: 11px;
+  color: var(--primary);
+  margin-bottom: 5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.cyber-location strong {
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* Cyber Map Wrapper (WOW Effect) */
+.map-wrapper {
+  position: relative;
+  width: 100%;
+  height: 130px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  box-shadow: inset 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+/* AJAIB: Ubah Google Maps menjadi Dark Cyber Radar */
+.map-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+.map-wrapper:hover iframe {
+  opacity: 1;
+}
+
+/* Garis Hologram Scan di atas Peta */
+.map-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(transparent 0px, rgba(0, 240, 255, 0.1) 2px, transparent 4px);
+  pointer-events: none; /* Supaya peta di bawahnya tetap bisa digeser/di-zoom pakai mouse */
+  z-index: 2;
+}
+
+@keyframes pulseGreen {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 255, 102, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 255, 102, 0);
+  }
+}
+
+/* Responsive Footer */
+@media (max-width: 900px) {
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-brand {
+    grid-column: 1 / span 2;
+    text-align: center;
+  }
+  .cyber-desc {
+    margin: 15px auto 25px;
+  }
+}
+@media (max-width: 600px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+    padding: 50px 0 30px 0;
+  }
+  .footer-brand {
+    grid-column: 1;
+  }
+  .social-grid {
+    align-items: center;
+  }
+  .bottom-flex {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+   ========================================= */
+@media (max-width: 1024px) {
+  .hero h1 {
+    font-size: 50px;
+  }
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 50px;
+  }
+  .hero p {
+    margin: 0 auto 40px;
+  }
+  .hero-btns {
+    justify-content: center;
+  }
+  /* Responsive Teks Belakang Foto */
+  .hero-extreme-photo-bg-text-stack {
+    font-size: 40px;
+    left: 50%;
+  }
+  .main-portrait-photo {
+    height: 60vh;
+  }
+}
 @media (max-width: 768px) {
   .menu-toggle {
     display: flex;
+    z-index: 1001;
   }
   .nav-links {
     position: absolute;
     top: 100%;
     left: -100%;
     flex-direction: column;
-    background-color: #1e293b;
     width: 100%;
-    text-align: center;
-    transition: left 0.4s ease-in-out;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
-    padding: 20px 0;
-    border-bottom: 1px solid var(--border-color);
+    background: rgba(5, 5, 17, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+    padding: 30px 0;
+    transition: 0.4s ease;
   }
   .nav-links.active {
     left: 0;
   }
-  .nav-links li {
-    margin: 15px 0;
-  }
+  /* Responsive Dropdown Mobile */
   .dropdown-content {
     position: static;
-    display: block;
-    visibility: hidden;
-    max-height: 0;
-    overflow: hidden;
-    background-color: transparent;
     box-shadow: none;
-    padding: 0;
     border: none;
-    transition:
-      max-height 0.4s ease,
-      padding 0.4s ease,
-      visibility 0.4s;
+    background: transparent;
+    display: none;
+    padding-left: 20px;
   }
-  .dropdown.active .dropdown-content {
-    visibility: visible;
-    max-height: 300px;
-    padding: 10px 0;
+  .dropdown:hover .dropdown-content {
+    display: block;
+    animation: none;
   }
-}
 
-/* --- Animasi Scroll --- */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-}
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* =========================================
-         GAYA KONTEN HALAMAN LKPD (DARK THEME)
-         ========================================= */
-.lkpd-page-content {
-  min-height: 80vh;
-  padding: 60px 0 100px 0;
-}
-
-.lkpd-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.lkpd-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.section-title {
-  font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 15px;
-  position: relative;
-  display: inline-block;
-  background: linear-gradient(to right, #fff, var(--text-muted));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.section-title::after {
-  content: "";
-  position: absolute;
-  width: 60%;
-  height: 4px;
-  bottom: -5px;
-  left: 20%;
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-  border-radius: 4px;
-  box-shadow: 0 0 10px var(--primary-color);
-}
-
-.subtitle {
-  color: var(--text-muted);
-  font-size: 16px;
-  line-height: 1.8;
-  max-width: 700px;
-  margin: 20px auto 0 auto;
-}
-
-/* --- Gaya Kotak Dokumen PDF LKPD --- */
-.pdf-wrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: var(--card-bg);
-  backdrop-filter: blur(10px);
-  padding: 40px 30px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--border-color);
-  transition: var(--transition);
-}
-
-.pdf-wrapper:hover {
-  border-color: var(--primary-color);
-}
-
-.pdf-title-box {
-  width: 100%;
-  border-bottom: 1px dashed var(--border-color);
-  padding-bottom: 15px;
-  margin-bottom: 25px;
-}
-
-.pdf-title-box h3 {
-  text-align: left;
-  color: var(--text-main);
-  font-size: 22px;
-  font-weight: 600;
-}
-
-.pdf-container {
-  width: 100%;
-  background: rgba(15, 23, 42, 0.5);
-  padding: 10px;
-  border-radius: 12px;
-  border: 1px solid var(--border-color);
-}
-
-.pdf-container iframe {
-  border: none;
-  border-radius: 8px;
-  background-color: #ffffff; /* Putih agar isi PDF terbaca jelas */
-}
-
-/* --- Tombol Aksi LKPD --- */
-.lkpd-actions {
-  display: flex;
-  gap: 15px;
-  margin-top: 30px;
-  justify-content: center;
-  width: 100%;
-}
-
-.btn-primary,
-.btn-outline {
-  padding: 12px 30px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: var(--transition);
-  font-size: 14px;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  border: 2px solid var(--primary-color);
-}
-
-.btn-primary {
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-  color: #fff;
-  border-color: transparent;
-  box-shadow: 0 5px 15px rgba(14, 165, 233, 0.3);
-}
-
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(14, 165, 233, 0.5);
-}
-
-.btn-outline {
-  color: var(--primary-color);
-  background: transparent;
-}
-
-.btn-outline::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 100%;
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-  transition: var(--transition);
-  z-index: -1;
-}
-
-.btn-outline:hover::before {
-  width: 100%;
-}
-
-.btn-outline:hover {
-  color: #fff;
-  border-color: transparent;
-  box-shadow: 0 10px 20px rgba(14, 165, 233, 0.4);
-  transform: translateY(-3px);
-}
-
-@media (max-width: 768px) {
-  .pdf-wrapper {
-    padding: 25px 20px;
+  .hero {
+    padding: 40px 0;
   }
-  .lkpd-actions {
+  .hero h1 {
+    font-size: 40px;
+  }
+  .hero-btns {
     flex-direction: column;
   }
-  .btn-primary,
-  .btn-outline {
-    width: 100%;
-    text-align: center;
+  /* Responsive Teks Belakang Foto Mobile */
+  .hero-extreme-photo-bg-text-stack {
+    font-size: 30px;
+    left: 50%;
+    letter-spacing: -1px;
   }
-  .pdf-container iframe {
-    height: 450px;
+  .main-portrait-photo {
+    height: 50vh;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 
 /* =========================================
-         GAYA FOOTER MODERN DARK THEME
-         ========================================= */
-.site-footer {
-  background-color: #0b1120;
-  color: var(--text-muted);
-  padding: 80px 0 0 0;
-  border-top: 1px solid var(--border-color);
+   MODUL AJAR PAGE: META TERMINAL
+   ========================================= */
+
+.section-header h2 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin: 0;
+  display: flex;
+  justify-content: center;
 }
 
-.footer-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 50px;
-  margin-bottom: 50px;
-}
-
-.footer-col h3 {
-  color: var(--text-main);
-  font-size: 26px;
-  margin-bottom: 15px;
-}
-.footer-col h3 span {
-  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.footer-col h4 {
+.section-header p {
+  max-width: 700px;
+  margin: 0 auto;
   color: var(--text-main);
   font-size: 18px;
-  margin-bottom: 25px;
-  position: relative;
-  padding-bottom: 10px;
 }
-.footer-col h4::after {
+
+.meta-terminal {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+  background: rgba(10, 10, 20, 0.6);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  padding: 30px;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sudut Ornamen Terminal */
+.meta-terminal::before,
+.meta-terminal::after {
   content: "";
   position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary);
+  pointer-events: none;
+}
+.meta-terminal::before {
+  top: 0;
   left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+.meta-terminal::after {
   bottom: 0;
-  width: 40px;
-  height: 3px;
-  background: var(--primary-color);
-  border-radius: 5px;
-  box-shadow: 0 0 8px var(--primary-color);
+  right: 0;
+  border-left: none;
+  border-top: none;
 }
 
-.links-col ul {
-  list-style: none;
-}
-.links-col ul li {
-  margin-bottom: 15px;
-}
-.links-col ul li a {
-  color: var(--text-muted);
-  text-decoration: none;
-  transition: var(--transition);
-}
-.links-col ul li a:hover {
-  color: var(--primary-hover);
-  padding-left: 8px;
-}
-
-.map-container {
-  border-radius: 12px;
-  overflow: hidden;
-  margin-top: 15px;
-  border: 1px solid var(--border-color);
-}
-.map-container iframe {
-  filter: invert(90%) hue-rotate(180deg) contrast(80%);
-  transition: var(--transition);
-}
-.map-container iframe:hover {
-  filter: invert(90%) hue-rotate(180deg) contrast(100%);
-}
-
-.social-links {
-  margin-top: 20px;
+.meta-item {
   display: flex;
+  align-items: center;
   gap: 15px;
+  padding: 10px;
+  background: rgba(0, 240, 255, 0.03);
+  border-left: 3px solid var(--accent-purple);
+  transition: all 0.3s ease;
 }
-.social-links a {
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text-main);
-  padding: 10px 20px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-size: 14px;
-  transition: var(--transition);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.meta-item:hover {
+  background: rgba(0, 240, 255, 0.1);
+  transform: translateX(5px);
+  border-left-color: var(--primary);
 }
-.social-links a:hover {
-  background: rgba(14, 165, 233, 0.1);
-  border-color: var(--primary-color);
-  color: var(--primary-color);
-  box-shadow: 0 0 15px rgba(14, 165, 233, 0.3);
-  transform: translateY(-3px);
+.meta-icon {
+  font-size: 24px;
+  filter: drop-shadow(0 0 5px var(--primary));
+}
+.meta-text {
+  display: flex;
+  flex-direction: column;
+}
+.meta-label {
+  font-family: monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  margin-bottom: 3px;
+}
+.meta-value {
+  font-weight: 700;
+  color: var(--white);
+  font-size: 15px;
+}
+.primary-glow {
+  color: var(--primary);
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
 }
 
-.footer-bottom {
-  background-color: #7e818b;
-  padding: 25px 0;
-  text-align: center;
+/* =========================================
+   OBSERVASI PAGE: PDF VIEWER TERMINAL
+   ========================================= */
+.pdf-terminal-wrapper {
+  background: #050511;
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(0, 240, 255, 0.2);
+}
+
+.terminal-header {
+  background: #0a0a14;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.terminal-dots {
+  display: flex;
+  gap: 8px;
+}
+.terminal-dots .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.dot.red {
+  background: #ff5f56;
+  box-shadow: 0 0 8px #ff5f56;
+}
+.dot.yellow {
+  background: #ffbd2e;
+  box-shadow: 0 0 8px #ffbd2e;
+}
+.dot.green {
+  background: #27c93f;
+  box-shadow: 0 0 8px #27c93f;
+}
+
+.terminal-title {
+  font-family: monospace;
+  color: var(--text-main);
+  font-size: 18px;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+.terminal-status {
+  font-family: monospace;
+  font-size: 12px;
+  color: #00ff66;
+}
+
+/* Area PDF */
+.pdf-container {
+  width: 100%;
+  height: 75vh; /* Mengisi 75% tinggi layar */
+  min-height: 500px;
+  position: relative;
+  background: #222; /* Background gelap saat PDF loading */
+}
+.cyber-pdf-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Footer Terminal & Tombol Download */
+.terminal-footer {
+  background: #0a0a14;
+  border-top: 1px solid rgba(0, 240, 255, 0.3);
+  padding: 15px 20px;
+  text-align: right;
+}
+.cyber-download-btn {
+  display: inline-block;
+  font-family: monospace;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 700;
   font-size: 14px;
-  color: #475569;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 8px 15px;
+  border: 1px solid var(--primary);
+  background: rgba(0, 240, 255, 0.05);
+  transition: all 0.3s ease;
+}
+.cyber-download-btn:hover {
+  background: var(--primary);
+  color: #020208;
+  box-shadow: 0 0 15px var(--primary);
+}
+.cyber-download-btn:hover .btn-bracket {
+  color: #020208;
+}
+
+/* Responsive PDF Viewer */
+@media (max-width: 768px) {
+  .meta-terminal {
+    grid-template-columns: 1fr;
+  }
+  .pdf-container {
+    height: 60vh;
+    min-height: 400px;
+  }
+  .terminal-title {
+    display: none;
+  } /* Sembunyikan judul di HP agar rapi */
+}
+
+/* Canvas Partikel Neural, diletakkan di belakang semua konten */
+#neural-data-particle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -3; /* Di belakang grid, orbs, dan konten */
+  pointer-events: none;
+  opacity: 0.4;
 }
