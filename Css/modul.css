@@ -5,32 +5,32 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #050511; /* Warna background gelap web-mu */
+  background: #050511;
   border-left: 1px solid rgba(0, 240, 255, 0.1);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--primary); /* Warna Cyan Neon */
+  background: var(--primary);
   border-radius: 10px;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-purple); /* Berubah ungu saat digeser */
+  background: var(--accent-purple);
 }
 
 /* =========================================
    VARIABEL & RESET DASAR (ULTRA-CYBERPUNK)
    ========================================= */
 :root {
-  --bg-dark: #050511; /* Deep Navy Black */
-  --card-bg: rgba(20, 20, 35, 0.7); /* Kaca Transparan */
-  --primary: #00f0ff; /* Cyan Neon Inten */
-  --accent: #ff003c; /* Cyberpunk Red/Magenta Inten */
-  --accent-purple: #a855f7; /* Ungu Neon Inten */
+  --bg-dark: #050511;
+  --card-bg: rgba(20, 20, 35, 0.7);
+  --primary: #00f0ff;
+  --accent: #ff003c;
+  --accent-purple: #a855f7;
   --text-main: #f1f5f9;
   --text-muted: #8b949e;
   --white: #ffffff;
-  --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
-  --transition-smooth: all 0.8s cubic-bezier(0.5, 0, 0, 1); /* Ultra-smooth transition */
+  --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --transition-smooth: all 0.8s cubic-bezier(0.5, 0, 0, 1);
   --font-main: "Plus Jakarta Sans", sans-serif;
 }
 
@@ -50,43 +50,9 @@ body {
   line-height: 1.6;
 }
 
-/* Animasi Kursor Berkedip */
-.cursor {
-  display: inline-block;
-  width: 12px;
-  background: #00ff66;
-  color: #00ff66;
-  animation: blinkCursor 0.8s infinite;
-  box-shadow: 0 0 10px #00ff66;
-}
-
-@keyframes blinkCursor {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
-/* Class untuk mengunci scroll saat loading */
-body.no-scroll {
-  overflow: hidden;
-}
-
-/* Class untuk efek BOOM dan menghilang */
-.preloader-hidden {
-  opacity: 0;
-  pointer-events: none; /* Supaya tidak bisa diklik lagi */
-  transform: scale(1.1); /* Sedikit membesar saat hilang */
-  filter: blur(10px);
-}
-
 /* =========================================
    CUSTOM CYBER CURSOR & RADAR
    ========================================= */
-/* Sembunyikan kursor bawaan Windows/Mac di layar besar */
 @media (min-width: 768px) {
   body,
   a,
@@ -99,25 +65,21 @@ body.no-scroll {
   }
 }
 
-/* Titik Inti (Neon Cyan) */
 .cyber-cursor-dot {
   position: fixed;
   top: 0;
   left: 0;
   width: 6px;
   height: 6px;
-  background-color: var(--primary); /* Cyan Neon */
+  background-color: var(--primary);
   border-radius: 50%;
-  pointer-events: none; /* PENTING: Agar tidak menghalangi klik mouse */
+  pointer-events: none;
   z-index: 100000;
   transform: translate(-50%, -50%);
   box-shadow: 0 0 10px var(--primary);
-  transition:
-    background-color 0.3s,
-    box-shadow 0.3s;
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-/* Cincin Radar (Crosshair) */
 .cyber-cursor-ring {
   position: fixed;
   top: 0;
@@ -130,15 +92,9 @@ body.no-scroll {
   z-index: 99999;
   transform: translate(-50%, -50%);
   box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
-  /* Efek delay / mengekor yang bikin mulus banget */
-  transition:
-    width 0.3s,
-    height 0.3s,
-    border-color 0.3s,
-    background-color 0.3s;
+  transition: width 0.3s, height 0.3s, border-color 0.3s, background-color 0.3s;
 }
 
-/* Garis Bidik (Kiri-Kanan & Atas-Bawah) di Cincin Radar */
 .cyber-cursor-ring::before,
 .cyber-cursor-ring::after {
   content: "";
@@ -146,7 +102,6 @@ body.no-scroll {
   background: rgba(0, 240, 255, 0.5);
   transition: background 0.3s;
 }
-/* Garis Horizontal */
 .cyber-cursor-ring::before {
   top: 50%;
   left: -6px;
@@ -154,7 +109,6 @@ body.no-scroll {
   height: 1px;
   transform: translateY(-50%);
 }
-/* Garis Vertikal */
 .cyber-cursor-ring::after {
   left: 50%;
   top: -6px;
@@ -163,9 +117,6 @@ body.no-scroll {
   transform: translateX(-50%);
 }
 
-/* =========================================
-   EFEK SAAT KURSOR MENYENTUH TOMBOL / LINK
-   ========================================= */
 .cursor-hover-active .cyber-cursor-dot {
   background-color: var(--accent-purple);
   box-shadow: 0 0 10px var(--accent-purple);
@@ -175,8 +126,8 @@ body.no-scroll {
   width: 55px;
   height: 55px;
   border-color: var(--accent-purple);
-  background-color: rgba(184, 0, 255, 0.05); /* Sedikit nyala ungu di dalam cincin */
-  animation: rotateRadar 3s linear infinite; /* Radar berputar */
+  background-color: rgba(184, 0, 255, 0.05);
+  animation: rotateRadar 3s linear infinite;
 }
 
 .cursor-hover-active .cyber-cursor-ring::before,
@@ -185,15 +136,10 @@ body.no-scroll {
 }
 
 @keyframes rotateRadar {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-/* Sembunyikan Kursor Custom di HP/Tablet agar tidak error saat disentuh jari */
 @media (max-width: 767px) {
   .cyber-cursor-dot,
   .cyber-cursor-ring {
@@ -201,6 +147,9 @@ body.no-scroll {
   }
 }
 
+/* =========================================
+   CONTAINER
+   ========================================= */
 .container {
   width: 90%;
   max-width: 1200px;
@@ -208,9 +157,8 @@ body.no-scroll {
 }
 
 /* =========================================
-   EFEK WOW: SCANLINES & SCROLL REVEAL AUTO
+   SCANLINES & SCROLL REVEAL
    ========================================= */
-/* Efek monitor lama di seluruh layar (DIPERTJAM) */
 .scanlines {
   position: fixed;
   top: 0;
@@ -224,7 +172,6 @@ body.no-scroll {
   opacity: 0.6;
 }
 
-/* Animasi Muncul Halus Saat Di-scroll (DIPERHALUS WOW) */
 .reveal {
   opacity: 0;
   transform: translateY(60px);
@@ -236,35 +183,29 @@ body.no-scroll {
 }
 
 /* =========================================
-   BACKGROUND ANIMASI BERGERAK TOTAL (WOW! Effect)
+   BACKGROUND ANIMASI
    ========================================= */
-/* Efek Cyber Grid & Data Streams Berjalan (DIPERBAIKI WOW) */
 .bg-grid-cyber {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 150vh;
-  background-image: linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px), radial-gradient(circle, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
-  background-size:
-    40px 40px,
-    40px 40px,
-    80px 80px;
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+    radial-gradient(circle, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px, 40px 40px, 80px 80px;
   z-index: -2;
   transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
   animation: gridMoveCyber 10s linear infinite;
   opacity: 0.8;
 }
 @keyframes gridMoveCyber {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 0 40px;
-  }
+  0% { background-position: 0 0; }
+  100% { background-position: 0 40px; }
 }
 
-/* Orbs Bercahaya Melayang di Belakang (DIPERBAIKI WOW) */
 .bg-gradient-wrapper {
   position: fixed;
   top: 0;
@@ -280,31 +221,23 @@ body.no-scroll {
   animation: floatOrb 15s ease-in-out infinite alternate;
 }
 .orb-1 {
-  width: 400px;
-  height: 400px;
+  width: 400px; height: 400px;
   background: rgba(0, 240, 255, 0.15);
-  top: 10%;
-  left: -5%;
+  top: 10%; left: -5%;
 }
 .orb-2 {
-  width: 500px;
-  height: 500px;
+  width: 500px; height: 500px;
   background: rgba(168, 85, 247, 0.1);
-  bottom: 10%;
-  right: -10%;
+  bottom: 10%; right: -10%;
   animation-delay: -5s;
 }
 @keyframes floatOrb {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  100% {
-    transform: translate(150px, 100px) scale(1.2);
-  }
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(150px, 100px) scale(1.2); }
 }
 
 /* =========================================
-   HEADER, NAVBAR, NEON TEXT & DROPDOWN (WOW! DIPERBAIKI)
+   HEADER & NAVBAR
    ========================================= */
 header {
   background: rgba(5, 5, 17, 0.85);
@@ -345,43 +278,21 @@ header {
   border: 1px solid rgba(0, 240, 255, 0.2);
 }
 
-/* Neon Text Global (DIPERTJAM) */
 .neon-text {
   color: var(--primary);
-  text-shadow:
-    0 0 10px rgba(0, 240, 255, 0.4),
-    0 0 20px rgba(0, 240, 255, 0.2),
-    0 0 30px rgba(168, 85, 247, 0.15);
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.4), 0 0 20px rgba(0, 240, 255, 0.2), 0 0 30px rgba(168, 85, 247, 0.15);
 }
 
-/* Teks Hanya Outline (Untuk Teks Belakang) */
-.outline-text {
-  -webkit-text-stroke: 1px var(--primary);
-  color: transparent;
-  text-shadow: none;
-}
-
-/* Animasi Kedip Neon (Korslet DIPERBAIKI WOW) */
 .flicker {
   animation: flickerAnimWOW 4s infinite alternate;
 }
 @keyframes flickerAnimWOW {
-  0%,
-  18%,
-  22%,
-  25%,
-  53%,
-  57%,
-  100% {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
     opacity: 1;
     color: var(--primary);
-    text-shadow:
-      0 0 10px rgba(0, 240, 255, 0.4),
-      0 0 20px rgba(0, 240, 255, 0.2);
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.4), 0 0 20px rgba(0, 240, 255, 0.2);
   }
-  20%,
-  24%,
-  55% {
+  20%, 24%, 55% {
     opacity: 0.5;
     color: #1a5663;
     text-shadow: none;
@@ -420,7 +331,6 @@ header {
   width: 100%;
 }
 
-/* CYBER DROPDOWN (WOW! Effekt slide & glow) */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -430,7 +340,6 @@ header {
   transition: transform 0.3s ease;
   display: inline-block;
 }
-/* Panah berputar saat di-hover */
 .dropdown:hover .arrow {
   transform: rotate(180deg);
   color: var(--primary);
@@ -446,27 +355,18 @@ header {
   min-width: 220px;
   border-radius: 12px;
   border: 1px solid rgba(0, 240, 255, 0.2);
-  box-shadow:
-    0 15px 35px rgba(0, 0, 0, 0.8),
-    0 0 20px rgba(0, 240, 255, 0.15);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 240, 255, 0.15);
   padding: 10px 0;
   z-index: 1000;
   list-style: none;
 }
-/* Muncul Halus & Geser (Slide) */
 .dropdown:hover .dropdown-content {
   display: block;
   animation: dropSlideWOW 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 @keyframes dropSlideWOW {
-  from {
-    opacity: 0;
-    transform: translateY(-15px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  from { opacity: 0; transform: translateY(-15px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .dropdown-content li a {
@@ -477,6 +377,16 @@ header {
   transition: all 0.3s ease;
   border-left: 3px solid transparent;
 }
+.dropdown-content li a::after {
+  display: none;
+}
+.dropdown-content li a:hover {
+  background: rgba(0, 240, 255, 0.08);
+  color: var(--primary);
+  padding-left: 30px;
+  border-left: 3px solid var(--primary);
+}
+
 /* Ikon di dropdown */
 .dropdown .fa-solid,
 .dropdown-content .fa-solid {
@@ -484,15 +394,6 @@ header {
   font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands";
   font-weight: 900;
   color: var(--primary);
-}
-.dropdown-content li a::after {
-  display: none;
-} /* Hilangkan garis bawah default nav */
-.dropdown-content li a:hover {
-  background: rgba(0, 240, 255, 0.08);
-  color: var(--primary);
-  padding-left: 30px;
-  border-left: 3px solid var(--primary);
 }
 
 .menu-toggle {
@@ -507,22 +408,8 @@ header {
   background-color: var(--white);
 }
 
-/* ANIMASI MELAYANG HERO IMAGE TOTAL (WOW DIPERHALUS) */
-.levitate-anim {
-  animation: levitateWOW 6s ease-in-out infinite;
-}
-@keyframes levitateWOW {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-25px);
-  } /* Melayang ke atas 25px */
-}
-
 /* =========================================
-   FOOTER TERMINAL (WOW! CYBERPUNK EDITION)
+   FOOTER
    ========================================= */
 .cyber-footer {
   background: rgba(5, 5, 17, 0.95);
@@ -534,11 +421,9 @@ header {
   overflow: hidden;
 }
 
-/* Garis Cahaya di batas atas footer */
 .footer-glow-line {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--primary), var(--accent-purple), transparent);
@@ -552,7 +437,6 @@ header {
   padding: 70px 0 50px 0;
 }
 
-/* Branding Column */
 .cyber-desc {
   color: var(--text-muted);
   font-size: 14px;
@@ -581,7 +465,6 @@ header {
   color: var(--text-muted);
 }
 
-/* Headers di Footer */
 .footer-links h4,
 .footer-social h4 {
   color: var(--white);
@@ -591,17 +474,21 @@ header {
   letter-spacing: 1px;
   text-transform: uppercase;
 }
-.primary-color {
-  color: var(--primary);
-  margin-right: 5px;
-}
 
-/* Links Navigasi */
 .footer-links ul {
   list-style: none;
 }
 .footer-links li {
   margin-bottom: 15px;
+}
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
 }
 .footer-links i {
   margin-right: 8px;
@@ -613,21 +500,11 @@ header {
   text-rendering: auto;
   display: inline-block;
 }
-.footer-links a {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  display: inline-block;
-  position: relative;
-}
 .footer-links a:hover {
   color: var(--primary);
   transform: translateX(5px);
 }
 
-/* Tombol Sosial Media Terminal Style */
 .social-grid {
   display: flex;
   flex-direction: row;
@@ -647,16 +524,24 @@ header {
   transition: all 0.3s ease;
   width: max-content;
 }
-.btn-bracket {
-  color: var(--text-muted);
-  margin: 0 5px;
+
+.social-btn i {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands";
+  font-weight: 900;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  color: var(--primary);
+  margin-right: 8px;
   transition: color 0.3s ease;
 }
-.btn-label {
+
+.social-btn .btn-label {
   font-family: var(--font-main);
-  margin-left: 10px;
   font-weight: 600;
   font-size: 14px;
+  color: var(--text-muted);
   transition: color 0.3s ease;
 }
 
@@ -666,14 +551,11 @@ header {
   transform: translateX(5px);
   box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
 }
-.social-btn:hover .btn-bracket {
-  color: var(--primary);
-}
+.social-btn:hover i,
 .social-btn:hover .btn-label {
   color: var(--white);
 }
 
-/* Footer Bottom (Copyright & System Status) */
 .footer-bottom {
   background: #020208;
   border-top: 1px dashed rgba(255, 255, 255, 0.1);
@@ -712,9 +594,6 @@ header {
   animation: pulseGreen 2s infinite;
 }
 
-/* =========================================
-   CYBER LOCATION & TACTICAL MAP
-   ========================================= */
 .cyber-location {
   background: rgba(0, 240, 255, 0.03);
   border-left: 3px solid var(--primary);
@@ -742,7 +621,6 @@ header {
   margin-bottom: 12px;
 }
 
-/* Cyber Map Wrapper (WOW Effect) */
 .map-wrapper {
   position: relative;
   width: 100%;
@@ -752,8 +630,6 @@ header {
   border: 1px solid rgba(0, 240, 255, 0.3);
   box-shadow: inset 0 0 10px rgba(0, 240, 255, 0.5);
 }
-
-/* AJAIB: Ubah Google Maps menjadi Dark Cyber Radar */
 .map-wrapper iframe {
   width: 100%;
   height: 100%;
@@ -764,154 +640,15 @@ header {
   opacity: 1;
 }
 
-/* Garis Hologram Scan di atas Peta */
-.map-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: repeating-linear-gradient(transparent 0px, rgba(0, 240, 255, 0.1) 2px, transparent 4px);
-  pointer-events: none; /* Supaya peta di bawahnya tetap bisa digeser/di-zoom pakai mouse */
-  z-index: 2;
-}
-
 @keyframes pulseGreen {
-  0% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.7);
-  }
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 10px rgba(0, 255, 102, 0);
-  }
-  100% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(0, 255, 102, 0);
-  }
-}
-
-/* Responsive Footer */
-@media (max-width: 900px) {
-  .footer-content {
-    grid-template-columns: 1fr 1fr;
-  }
-  .footer-brand {
-    grid-column: 1 / span 2;
-    text-align: center;
-  }
-  .cyber-desc {
-    margin: 15px auto 25px;
-  }
-}
-@media (max-width: 600px) {
-  .footer-content {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 40px;
-    padding: 50px 0 30px 0;
-  }
-  .footer-brand {
-    grid-column: 1;
-  }
-  .social-grid {
-    align-items: center;
-  }
-  .bottom-flex {
-    flex-direction: column;
-    text-align: center;
-  }
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 255, 102, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0); }
 }
 
 /* =========================================
-   MOBILE RESPONSIVE
+   SECTION HEADER & META TERMINAL
    ========================================= */
-@media (max-width: 1024px) {
-  .hero h1 {
-    font-size: 50px;
-  }
-  .hero-content {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 50px;
-  }
-  .hero p {
-    margin: 0 auto 40px;
-  }
-  .hero-btns {
-    justify-content: center;
-  }
-  /* Responsive Teks Belakang Foto */
-  .hero-extreme-photo-bg-text-stack {
-    font-size: 40px;
-    left: 50%;
-  }
-  .main-portrait-photo {
-    height: 60vh;
-  }
-}
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: flex;
-    z-index: 1001;
-  }
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    left: -100%;
-    flex-direction: column;
-    width: 100%;
-    background: rgba(5, 5, 17, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 240, 255, 0.2);
-    padding: 30px 0;
-    transition: 0.4s ease;
-  }
-  .nav-links.active {
-    left: 0;
-  }
-  /* Responsive Dropdown Mobile */
-  .dropdown-content {
-    position: static;
-    box-shadow: none;
-    border: none;
-    background: transparent;
-    display: none;
-    padding-left: 20px;
-  }
-  .dropdown:hover .dropdown-content {
-    display: block;
-    animation: none;
-  }
-
-  .hero {
-    padding: 40px 0;
-  }
-  .hero h1 {
-    font-size: 40px;
-  }
-  .hero-btns {
-    flex-direction: column;
-  }
-  /* Responsive Teks Belakang Foto Mobile */
-  .hero-extreme-photo-bg-text-stack {
-    font-size: 30px;
-    left: 50%;
-    letter-spacing: -1px;
-  }
-  .main-portrait-photo {
-    height: 50vh;
-  }
-  .stats-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-}
-
-/* =========================================
-   MODUL AJAR PAGE: META TERMINAL
-   ========================================= */
-
 .section-header h2 {
   font-size: 2.5rem;
   text-transform: uppercase;
@@ -941,27 +678,21 @@ header {
   overflow: hidden;
 }
 
-/* Sudut Ornamen Terminal */
 .meta-terminal::before,
 .meta-terminal::after {
   content: "";
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 20px; height: 20px;
   border: 2px solid var(--primary);
   pointer-events: none;
 }
 .meta-terminal::before {
-  top: 0;
-  left: 0;
-  border-right: none;
-  border-bottom: none;
+  top: 0; left: 0;
+  border-right: none; border-bottom: none;
 }
 .meta-terminal::after {
-  bottom: 0;
-  right: 0;
-  border-left: none;
-  border-top: none;
+  bottom: 0; right: 0;
+  border-left: none; border-top: none;
 }
 
 .meta-item {
@@ -1003,17 +734,25 @@ header {
   text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
 }
 
+/* Pastikan ikon di meta-icon tampil sempurna */
+.meta-icon i {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands";
+  font-weight: 900;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+
 /* =========================================
-   OBSERVASI PAGE: PDF VIEWER TERMINAL
+   PDF VIEWER TERMINAL
    ========================================= */
 .pdf-terminal-wrapper {
   background: #050511;
   border: 1px solid var(--primary);
   border-radius: 8px;
   overflow: hidden;
-  box-shadow:
-    0 15px 35px rgba(0, 0, 0, 0.8),
-    0 0 20px rgba(0, 240, 255, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 240, 255, 0.2);
 }
 
 .terminal-header {
@@ -1029,22 +768,12 @@ header {
   gap: 8px;
 }
 .terminal-dots .dot {
-  width: 12px;
-  height: 12px;
+  width: 12px; height: 12px;
   border-radius: 50%;
 }
-.dot.red {
-  background: #ff5f56;
-  box-shadow: 0 0 8px #ff5f56;
-}
-.dot.yellow {
-  background: #ffbd2e;
-  box-shadow: 0 0 8px #ffbd2e;
-}
-.dot.green {
-  background: #27c93f;
-  box-shadow: 0 0 8px #27c93f;
-}
+.dot.red    { background: #ff5f56; box-shadow: 0 0 8px #ff5f56; }
+.dot.yellow { background: #ffbd2e; box-shadow: 0 0 8px #ffbd2e; }
+.dot.green  { background: #27c93f; box-shadow: 0 0 8px #27c93f; }
 
 .terminal-title {
   font-family: monospace;
@@ -1059,13 +788,12 @@ header {
   color: #00ff66;
 }
 
-/* Area PDF */
 .pdf-container {
   width: 100%;
-  height: 75vh; /* Mengisi 75% tinggi layar */
+  height: 75vh;
   min-height: 500px;
   position: relative;
-  background: #222; /* Background gelap saat PDF loading */
+  background: #222;
 }
 .cyber-pdf-frame {
   width: 100%;
@@ -1073,7 +801,6 @@ header {
   border: none;
 }
 
-/* Footer Terminal & Tombol Download */
 .terminal-footer {
   background: #0a0a14;
   border-top: 1px solid rgba(0, 240, 255, 0.3);
@@ -1092,17 +819,75 @@ header {
   background: rgba(0, 240, 255, 0.05);
   transition: all 0.3s ease;
 }
+.cyber-download-btn i {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  display: inline-block;
+  margin-right: 6px;
+  color: inherit;
+}
 .cyber-download-btn:hover {
   background: var(--primary);
   color: #020208;
   box-shadow: 0 0 15px var(--primary);
 }
-.cyber-download-btn:hover .btn-bracket {
+.cyber-download-btn:hover .btn-bracket,
+.cyber-download-btn:hover i {
   color: #020208;
 }
 
-/* Responsive PDF Viewer */
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 900px) {
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-brand {
+    grid-column: 1 / span 2;
+    text-align: center;
+  }
+  .cyber-desc {
+    margin: 15px auto 25px;
+  }
+}
+
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+    z-index: 1001;
+  }
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: -100%;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(5, 5, 17, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+    padding: 30px 0;
+    transition: 0.4s ease;
+  }
+  .nav-links.active { left: 0; }
+
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    display: none;
+    padding-left: 20px;
+  }
+  .dropdown:hover .dropdown-content {
+    display: block;
+    animation: none;
+  }
+
   .meta-terminal {
     grid-template-columns: 1fr;
   }
@@ -1110,22 +895,32 @@ header {
     height: 60vh;
     min-height: 400px;
   }
-  .terminal-title {
-    display: none;
-  } /* Sembunyikan judul di HP agar rapi */
+  .terminal-title { display: none; }
   .cyber-download-btn {
-    margin: 10px;
-}
+    margin: 5px;
+  }
 }
 
-/* Canvas Partikel Neural, diletakkan di belakang semua konten */
+@media (max-width: 600px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+    padding: 50px 0 30px 0;
+  }
+  .footer-brand { grid-column: 1; }
+  .social-grid { align-items: center; }
+  .bottom-flex { flex-direction: column; text-align: center; }
+}
+
+/* =========================================
+   CANVAS PARTIKEL
+   ========================================= */
 #neural-data-particle {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -3; /* Di belakang grid, orbs, dan konten */
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: -3;
   pointer-events: none;
   opacity: 0.4;
 }
