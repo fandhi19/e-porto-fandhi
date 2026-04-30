@@ -1282,5 +1282,17 @@ header {
   .bottom-flex { flex-direction: column; text-align: center; }
   .cyber-gallery { display: flex; flex-direction: column; gap: 20px; }
   .gallery-item { height: 250px; width: 100%; }
+  .photo-glow-aura {
+  position: absolute;
+  width: 120px;
+  top: 0; left: 0;
+  background: radial-gradient(circle, rgba(0,240,255,0.2), transparent 70%), radial-gradient(circle at 70% 30%, rgba(168,85,247,0.15), transparent 60%);
+  opacity: 0.9;
+  z-index: 1;
+  opacity: 0.9;
+  margin-left: 100px;
+  z-index: 1;
+  filter: blur(10px);
+}
   
 }
