@@ -445,6 +445,14 @@ header {
   transition: all 0.3s ease;
   border-left: 3px solid transparent;
 }
+/* Ikon di dropdown */
+.dropdown .fa-solid,
+.dropdown-content .fa-solid {
+  margin-right: 8px;
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands";
+  font-weight: 900;
+  color: var(--primary);
+}
 .dropdown-content li a::after {
   display: none;
 }
@@ -559,6 +567,16 @@ header {
   transition: all 0.3s ease;
   display: inline-block;
   position: relative;
+}
+.footer-links i {
+  margin-right: 8px;
+  color: var(--primary);
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands";
+  font-weight: 900;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  display: inline-block;
 }
 .footer-links a:hover {
   color: var(--primary);
