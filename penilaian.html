@@ -3,26 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Modul Ajar | E-Portofolio PPG</title>
+    <title>Penilaian | E-Portofolio PPG</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="Css/modul.css" />
     <link rel="shortcut icon" href="Images/logo_uny.png" type="Logo UNY" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="Css/penilaian.css" />
   </head>
   <body>
     <div class="cyber-cursor-dot" id="cursor-dot"></div>
     <div class="cyber-cursor-ring" id="cursor-ring"></div>
-
     <div class="scanlines"></div>
-
     <div class="bg-grid-cyber"></div>
     <div class="bg-gradient-wrapper">
       <div class="orb orb-1"></div>
       <div class="orb orb-2"></div>
     </div>
-
     <canvas id="neural-data-particle"></canvas>
 
     <header>
@@ -78,88 +75,136 @@
     </header>
 
     <main>
+      <!-- Section Judul -->
       <section class="section observasi-header" style="padding: 120px 0 50px">
         <div class="container reveal">
-          <div class="section-header text-center" style="margin-bottom: 50px">
-            <h2 class="section-title glitch-text" data-text="OBSERVASI PPL 1">MODUL AJAR KURIKULUM MERDEKA</h2>
+          <div class="section-header" style="margin-bottom: 40px">
+            <h2 class="section-title glitch-text" data-text="PENILAIAN GURU PAMONG">PENILAIAN GURU PAMONG</h2>
             <div class="title-divider" style="width: 80px; height: 3px; background: var(--primary); margin: 20px auto; box-shadow: 0 0 15px var(--primary)"></div>
-            <p class="cyber-desc">Dokumen rancangan pembelajaran yang telah disusun dan diterapkan selama pelaksanaan PPL 1.</p>
+            <p class="cyber-desc">Rekapitulasi evaluasi kompetensi pedagogik dan profesional selama pelaksanaan Praktik Pengalaman Lapangan (PPL 1) di SMAN 4 Yogyakarta.</p>
           </div>
 
+          <!-- Kartu info -->
           <div class="meta-terminal">
             <div class="meta-item">
-              <span class="meta-icon"><i class="fa-solid fa-laptop-code"></i></span>
-              <div class="meta-text">
-                <span class="meta-label">MATA PELAJARAN</span>
-                <span class="meta-value primary-glow">Informatika</span>
-              </div>
+              <span class="meta-icon"><i class="fa-solid fa-user-graduate"></i></span>
+              <div class="meta-text"><span class="meta-label">MAHASISWA PPL</span><span class="meta-value primary-glow">Ilyas Fandhi Anggara</span></div>
             </div>
-
+            <div class="meta-item">
+              <span class="meta-icon"><i class="fa-solid fa-chalkboard-user"></i></span>
+              <div class="meta-text"><span class="meta-label">GURU PAMONG</span><span class="meta-value">Titis Widowati, ST</span></div>
+            </div>
             <div class="meta-item">
               <span class="meta-icon"><i class="fa-solid fa-school"></i></span>
-              <div class="meta-text">
-                <span class="meta-label">SEKOLAH</span>
-                <span class="meta-value">SMAN 4 Yogyakarta</span>
-              </div>
-            </div>
-
-            <div class="meta-item">
-              <span class="meta-icon"><i class="fa-solid fa-users"></i></span>
-              <div class="meta-text">
-                <span class="meta-label">FASE / KELAS</span>
-                <span class="meta-value">E / Kelas X</span>
-              </div>
-            </div>
-
-            <div class="meta-item">
-              <span class="meta-icon"><i class="fa-solid fa-book-open"></i></span>
-              <div class="meta-text">
-                <span class="meta-label">MATERI POKOK</span>
-                <span class="meta-value">Literasi Digital</span>
-              </div>
-            </div>
-
-            <div class="meta-item">
-              <span class="meta-icon"><i class="fa-solid fa-user-graduate"></i></span>
-              <div class="meta-text">
-                <span class="meta-label">PENYUSUN</span>
-                <span class="meta-value">Ilyas Fandhi Anggara, S.Kom</span>
-              </div>
+              <div class="meta-text"><span class="meta-label">SEKOLAH MITRA</span><span class="meta-value">SMAN 4 Yogyakarta</span></div>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- Grid PDF Penilaian -->
       <section class="section pdf-section" style="padding: 0 0 100px">
         <div class="container reveal">
-          <div class="pdf-terminal-wrapper">
-            <div class="terminal-header">
-              <div class="terminal-dots">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
+          <div class="pdf-grid">
+            <!-- Penilaian Perancangan Perangkat Ajar -->
+            <div class="pdf-terminal-wrapper">
+              <div class="terminal-header">
+                <div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+                <div class="terminal-title">📄 Penilaian Perangkat Ajar</div>
+                <div class="terminal-status pulse-dot">ONLINE</div>
               </div>
-              <div class="terminal-title">Pertinjau Modul Ajar</div>
-              <div class="terminal-status pulse-dot">ONLINE</div>
+              <div class="pdf-container">
+                <iframe src="Dokumen/modul_ajar.pdf" class="cyber-pdf-frame" title="Penilaian Perangkat Ajar"
+                  ><p>Browser tidak mendukung iframe. <a href="Dokumen/penilaian_perangkat_ajar.pdf">Download PDF</a></p></iframe
+                >
+              </div>
+              <div class="terminal-footer">
+                <a href="Dokumen/penilaian_praktik2.pdf" download="Penilaian_Praktik_2_Ilyas.pdf" class="cyber-download-btn">
+                  <span class="btn-bracket">[</span>
+                  <i class="fa-solid fa-download"></i> DOWNLOAD_FILE
+                  <span class="btn-bracket">]</span>
+                </a>
+                <a href="Dokumen/penilaian_praktik2.pdf" target="_blank" class="cyber-download-btn">
+                  <span class="btn-bracket">[</span>
+                  <i class="fa-solid fa-up-right-from-square"></i> BUKA_DI_TAB_BARU
+                  <span class="btn-bracket">]</span>
+                </a>
+              </div>
             </div>
-
-            <div class="pdf-container">
-              <iframe src="Dokumen/modul_ajar.pdf" class="cyber-pdf-frame" title="Dokumen Hasil Observasi">
-                <p>Browser Anda tidak mendukung iframe PDF. <a href="Dokumen/modul_ajar.pdf">Download PDF</a></p>
-              </iframe>
+            <!-- Penilaian Praktik Mengajar 1 -->
+            <div class="pdf-terminal-wrapper">
+              <div class="terminal-header">
+                <div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+                <div class="terminal-title">📄 Praktik Mengajar 1</div>
+                <div class="terminal-status pulse-dot">ONLINE</div>
+              </div>
+              <div class="pdf-container">
+                <iframe src="Dokumen/penilaian_praktik1.pdf" class="cyber-pdf-frame" title="Praktik Mengajar 1"
+                  ><p>Browser tidak mendukung iframe. <a href="Dokumen/penilaian_praktik1.pdf">Download PDF</a></p></iframe
+                >
+              </div>
+              <div class="terminal-footer">
+                <a href="Dokumen/penilaian_praktik2.pdf" download="Penilaian_Praktik_2_Ilyas.pdf" class="cyber-download-btn">
+                  <span class="btn-bracket">[</span>
+                  <i class="fa-solid fa-download"></i> DOWNLOAD_FILE
+                  <span class="btn-bracket">]</span>
+                </a>
+                <a href="Dokumen/penilaian_praktik2.pdf" target="_blank" class="cyber-download-btn">
+                  <span class="btn-bracket">[</span>
+                  <i class="fa-solid fa-up-right-from-square"></i> BUKA_DI_TAB_BARU
+                  <span class="btn-bracket">]</span>
+                </a>
+              </div>
             </div>
-
-            <div class="terminal-footer">
-              <a href="Dokumen/modul_ajar.pdf" download="Hasil_Observasi_Manajemen_Sekolah_Ilyas.pdf" class="cyber-download-btn">
-                <span class="btn-bracket">[</span>
-                <i class="fa-solid fa-download"></i> DOWNLOAD_FILE
-                <span class="btn-bracket">]</span>
-              </a>
-              <a href="Dokumen/modul_ajar.pdf" target="_blank" class="cyber-download-btn">
-                <span class="btn-bracket">[</span>
-                <i class="fa-solid fa-up-right-from-square"></i> BUKA_DI_TAB_BARU
-                <span class="btn-bracket">]</span>
-              </a>
+            <!-- Penilaian Praktik Mengajar 2 -->
+            <div class="pdf-terminal-wrapper">
+              <div class="terminal-header">
+                <div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+                <div class="terminal-title">📄 Praktik Mengajar 2</div>
+                <div class="terminal-status pulse-dot">ONLINE</div>
+              </div>
+              <div class="pdf-container">
+                <iframe src="Dokumen/penilaian_praktik2.pdf" class="cyber-pdf-frame" title="Praktik Mengajar 2"
+                  ><p>Browser tidak mendukung iframe. <a href="Dokumen/penilaian_praktik2.pdf">Download PDF</a></p></iframe
+                >
+              </div>
+              <div class="terminal-footer">
+                <a href="Dokumen/penilaian_praktik2.pdf" download="Penilaian_Praktik_2_Ilyas.pdf" class="cyber-download-btn">
+                  <span class="btn-bracket">[</span>
+                  <i class="fa-solid fa-download"></i> DOWNLOAD_FILE
+                  <span class="btn-bracket">]</span>
+                </a>
+                <a href="Dokumen/penilaian_praktik2.pdf" target="_blank" class="cyber-download-btn">
+                  <span class="btn-bracket">[</span>
+                  <i class="fa-solid fa-up-right-from-square"></i> BUKA_DI_TAB_BARU
+                  <span class="btn-bracket">]</span>
+                </a>
+              </div>
+            </div>
+            <!-- Penilaian Praktik Mengajar 3 -->
+            <div class="pdf-terminal-wrapper">
+              <div class="terminal-header">
+                <div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+                <div class="terminal-title">📄 Praktik Mengajar 3</div>
+                <div class="terminal-status pulse-dot">ONLINE</div>
+              </div>
+              <div class="pdf-container">
+                <iframe src="Dokumen/penilaian_praktik3.pdf" class="cyber-pdf-frame" title="Praktik Mengajar 3"
+                  ><p>Browser tidak mendukung iframe. <a href="Dokumen/penilaian_praktik3.pdf">Download PDF</a></p></iframe
+                >
+              </div>
+              <div class="terminal-footer">
+                <a href="Dokumen/penilaian_praktik2.pdf" download="Penilaian_Praktik_2_Ilyas.pdf" class="cyber-download-btn">
+                  <span class="btn-bracket">[</span>
+                  <i class="fa-solid fa-download"></i> DOWNLOAD_FILE
+                  <span class="btn-bracket">]</span>
+                </a>
+                <a href="Dokumen/penilaian_praktik2.pdf" target="_blank" class="cyber-download-btn">
+                  <span class="btn-bracket">[</span>
+                  <i class="fa-solid fa-up-right-from-square"></i> BUKA_DI_TAB_BARU
+                  <span class="btn-bracket">]</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -258,153 +303,92 @@
     </footer>
 
     <script>
-      // Hamburger Menu Mobile
+      // Mobile menu toggle
       const mobileMenu = document.getElementById("mobile-menu");
       const navLinks = document.getElementById("nav-links");
-      mobileMenu.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-      });
+      mobileMenu.addEventListener("click", () => navLinks.classList.toggle("active"));
 
-      // Scroll Reveal Animasi (WOW! Effect)
+      // Scroll reveal
       function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
-        for (var i = 0; i < reveals.length; i++) {
-          var windowHeight = window.innerHeight;
-          var elementTop = reveals[i].getBoundingClientRect().top;
-          var elementVisible = 100; // Mulai animasi ketika 100px elemen terlihat
-          if (elementTop < windowHeight - elementVisible) {
-            reveals[i].classList.add("active");
-          }
-        }
+        document.querySelectorAll(".reveal").forEach((el) => {
+          if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add("active");
+        });
       }
       window.addEventListener("scroll", reveal);
-      reveal(); // Jalankan sekali saat halaman pertama load
+      reveal();
 
-      // ==========================================
-      // CYBER CURSOR & RADAR LOGIC
-      // ==========================================
+      // Cyber cursor
       const cursorDot = document.getElementById("cursor-dot");
       const cursorRing = document.getElementById("cursor-ring");
-
-      // Deteksi jika perangkat ini adalah Desktop (bukan HP)
       const isDesktop = window.matchMedia("(min-width: 768px)").matches;
-
       if (isDesktop) {
-        // 1. Menggerakkan Kursor mengikuti Mouse
         window.addEventListener("mousemove", (e) => {
-          // Titik inti bergerak instan
           cursorDot.style.left = `${e.clientX}px`;
           cursorDot.style.top = `${e.clientY}px`;
-
-          // Cincin radar mengikuti dengan efek "mengekor" yang sangat mulus
-          cursorRing.animate(
-            {
-              left: `${e.clientX}px`,
-              top: `${e.clientY}px`,
-            },
-            { duration: 150, fill: "forwards" },
-          );
+          cursorRing.animate({ left: `${e.clientX}px`, top: `${e.clientY}px` }, { duration: 150, fill: "forwards" });
         });
-
-        // 2. Efek Interaktif saat menyentuh link/tombol
-        // Cari semua elemen yang bisa diklik
-        const interactables = document.querySelectorAll("a, button, .social-btn, .nav-links li");
-
-        interactables.forEach((el) => {
-          el.addEventListener("mouseenter", () => {
-            document.body.classList.add("cursor-hover-active");
-          });
-          el.addEventListener("mouseleave", () => {
-            document.body.classList.remove("cursor-hover-active");
-          });
+        document.querySelectorAll("a, button, .social-btn, .nav-links li").forEach((el) => {
+          el.addEventListener("mouseenter", () => document.body.classList.add("cursor-hover-active"));
+          el.addEventListener("mouseleave", () => document.body.classList.remove("cursor-hover-active"));
         });
       }
-      // =============================================
-      // NEURAL DATA STREAM PARTICLE (DIGITAL RAIN)
-      // =============================================
+
+      // Neural particle (sama seperti modul)
       (function () {
         const canvas = document.getElementById("neural-data-particle");
-        if (!canvas) return; // Berhenti jika canvas tidak ada (fallback)
+        if (!canvas) return;
         const ctx = canvas.getContext("2d");
-
-        let width, height;
-        let particles = [];
-
-        // Karakter acak ala Matrix / Data Stream
+        let width,
+          height,
+          particles = [];
         const chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF<>/{}[]|?*#@%&";
-
-        // Konfigurasi partikel
-        const PARTICLE_COUNT = 80; // Jumlah titik/partikel
-        const FONT_SIZE = 14;
-        const SPEED_MIN = 0.4;
-        const SPEED_MAX = 1.2;
-
+        const PARTICLE_COUNT = 80;
         function resizeCanvas() {
           width = window.innerWidth;
           height = window.innerHeight;
           canvas.width = width;
           canvas.height = height;
-          initParticles(); // Regenerasi partikel saat resize
+          initParticles();
         }
-
         class Particle {
-          constructor() {
-            this.reset(true);
-          }
-
-          // Reset posisi & properti (digunakan saat inisialisasi dan saat partikel keluar layar)
           reset(initial = false) {
             this.x = Math.random() * width;
-            // Jika partikel baru (inisialisasi), sebarkan secara vertikal agar tidak numpuk di atas
             this.y = initial ? Math.random() * height : -10;
             this.char = chars[Math.floor(Math.random() * chars.length)];
-            this.speed = Math.random() * (SPEED_MAX - SPEED_MIN) + SPEED_MIN;
-            this.fontSize = Math.random() * 14 + 10; // Variasi ukuran
+            this.speed = Math.random() * 0.8 + 0.4;
+            this.fontSize = Math.random() * 14 + 10;
             this.opacity = Math.random() * 0.5 + 0.3;
-            // Warna kebiruan/ungu acak
-            const hue = Math.random() > 0.5 ? 185 : 270; // Cyan atau Ungu
-            this.color = `hsla(${hue}, 90%, 70%, ${this.opacity})`;
+            this.color = `hsla(${Math.random() > 0.5 ? 185 : 270}, 90%, 70%, ${this.opacity})`;
           }
-
           update() {
             this.y += this.speed;
-            // Reset jika melewati layar
-            if (this.y > height + 20) {
-              this.reset();
-            }
+            if (this.y > height + 20) this.reset();
           }
-
           draw() {
             ctx.font = `${this.fontSize}px "Courier New", monospace`;
             ctx.fillStyle = this.color;
             ctx.fillText(this.char, this.x, this.y);
           }
         }
-
         function initParticles() {
           particles = [];
           for (let i = 0; i < PARTICLE_COUNT; i++) {
-            particles.push(new Particle());
+            let p = new Particle();
+            p.reset(true);
+            particles.push(p);
           }
         }
-
-        function animateParticles() {
+        function animate() {
           ctx.clearRect(0, 0, width, height);
-
-          for (let p of particles) {
+          particles.forEach((p) => {
             p.update();
             p.draw();
-          }
-
-          requestAnimationFrame(animateParticles);
+          });
+          requestAnimationFrame(animate);
         }
-
-        // Event Listener
         window.addEventListener("resize", resizeCanvas);
-
-        // Inisialisasi Awal & Mulai Animasi
         resizeCanvas();
-        animateParticles();
+        animate();
       })();
     </script>
   </body>

@@ -77,7 +77,9 @@ body {
   z-index: 100000;
   transform: translate(-50%, -50%);
   box-shadow: 0 0 10px var(--primary);
-  transition: background-color 0.3s, box-shadow 0.3s;
+  transition:
+    background-color 0.3s,
+    box-shadow 0.3s;
 }
 
 .cyber-cursor-ring {
@@ -92,7 +94,11 @@ body {
   z-index: 99999;
   transform: translate(-50%, -50%);
   box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
-  transition: width 0.3s, height 0.3s, border-color 0.3s, background-color 0.3s;
+  transition:
+    width 0.3s,
+    height 0.3s,
+    border-color 0.3s,
+    background-color 0.3s;
 }
 
 .cyber-cursor-ring::before,
@@ -195,10 +201,11 @@ body {
   left: 0;
   width: 100vw;
   height: 150vh;
-  background-image: linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px),
-    radial-gradient(circle, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px, 40px 40px, 80px 80px;
+  background-image: linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px), radial-gradient(circle, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
+  background-size:
+    40px 40px,
+    40px 40px,
+    80px 80px;
   z-index: -2;
   transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
   animation: gridMoveCyber 10s linear infinite;
@@ -295,7 +302,9 @@ header {
 
 .neon-text {
   color: var(--primary);
-  text-shadow: 0 0 10px rgba(0, 240, 255, 0.4), 0 0 20px rgba(0, 240, 255, 0.2),
+  text-shadow:
+    0 0 10px rgba(0, 240, 255, 0.4),
+    0 0 20px rgba(0, 240, 255, 0.2),
     0 0 30px rgba(168, 85, 247, 0.15);
 }
 
@@ -303,12 +312,22 @@ header {
   animation: flickerAnimWOW 4s infinite alternate;
 }
 @keyframes flickerAnimWOW {
-  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
     opacity: 1;
     color: var(--primary);
-    text-shadow: 0 0 10px rgba(0, 240, 255, 0.4), 0 0 20px rgba(0, 240, 255, 0.2);
+    text-shadow:
+      0 0 10px rgba(0, 240, 255, 0.4),
+      0 0 20px rgba(0, 240, 255, 0.2);
   }
-  20%, 24%, 55% {
+  20%,
+  24%,
+  55% {
     opacity: 0.5;
     color: #1a5663;
     text-shadow: none;
@@ -371,7 +390,9 @@ header {
   min-width: 220px;
   border-radius: 12px;
   border: 1px solid rgba(0, 240, 255, 0.2);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 240, 255, 0.15);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(0, 240, 255, 0.15);
   padding: 10px 0;
   z-index: 1000;
   list-style: none;
@@ -704,6 +725,7 @@ header {
   margin: 0 auto;
   color: var(--text-main);
   font-size: 18px;
+  text-align: center;
 }
 
 .meta-terminal {
@@ -789,7 +811,9 @@ header {
   border: 1px solid var(--primary);
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 240, 255, 0.2);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(0, 240, 255, 0.2);
 }
 
 .terminal-header {
@@ -852,7 +876,7 @@ header {
   background: #0a0a14;
   border-top: 1px solid rgba(0, 240, 255, 0.3);
   padding: 15px 20px;
-  text-align: right;
+  text-align: center;
 }
 .cyber-download-btn {
   display: inline-block;
@@ -865,6 +889,7 @@ header {
   border: 1px solid var(--primary);
   background: rgba(0, 240, 255, 0.05);
   transition: all 0.3s ease;
+  margin: 10px;
 }
 .cyber-download-btn i {
   font-family: "Font Awesome 6 Free";
@@ -966,6 +991,10 @@ header {
   }
   .terminal-title {
     display: none;
+  }
+  .cyber-download-btn {
+    margin-top: 10px;
+    width: 270px;
   }
 }
 

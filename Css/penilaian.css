@@ -5,32 +5,32 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #050511; /* Warna background gelap web-mu */
+  background: #050511;
   border-left: 1px solid rgba(0, 240, 255, 0.1);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--primary); /* Warna Cyan Neon */
+  background: var(--primary);
   border-radius: 10px;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-purple); /* Berubah ungu saat digeser */
+  background: var(--accent-purple);
 }
 
 /* =========================================
    VARIABEL & RESET DASAR (ULTRA-CYBERPUNK)
    ========================================= */
 :root {
-  --bg-dark: #050511; /* Deep Navy Black */
-  --card-bg: rgba(20, 20, 35, 0.7); /* Kaca Transparan */
-  --primary: #00f0ff; /* Cyan Neon Inten */
-  --accent: #ff003c; /* Cyberpunk Red/Magenta Inten */
-  --accent-purple: #a855f7; /* Ungu Neon Inten */
+  --bg-dark: #050511;
+  --card-bg: rgba(20, 20, 35, 0.7);
+  --primary: #00f0ff;
+  --accent: #ff003c;
+  --accent-purple: #a855f7;
   --text-main: #f1f5f9;
   --text-muted: #8b949e;
   --white: #ffffff;
-  --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
-  --transition-smooth: all 0.8s cubic-bezier(0.5, 0, 0, 1); /* Ultra-smooth transition */
+  --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --transition-smooth: all 0.8s cubic-bezier(0.5, 0, 0, 1);
   --font-main: "Plus Jakarta Sans", sans-serif;
 }
 
@@ -50,55 +50,9 @@ body {
   line-height: 1.6;
 }
 
-/* Canvas Partikel Neural, diletakkan di belakang semua konten */
-#neural-data-particle {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -3; /* Di belakang grid, orbs, dan konten */
-  pointer-events: none;
-  opacity: 0.4;
-}
-
-/* Animasi Kursor Berkedip */
-.cursor {
-  display: inline-block;
-  width: 12px;
-  background: #00ff66;
-  color: #00ff66;
-  animation: blinkCursor 0.8s infinite;
-  box-shadow: 0 0 10px #00ff66;
-}
-
-@keyframes blinkCursor {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
-/* Class untuk mengunci scroll saat loading */
-body.no-scroll {
-  overflow: hidden;
-}
-
-/* Class untuk efek BOOM dan menghilang */
-.preloader-hidden {
-  opacity: 0;
-  pointer-events: none; /* Supaya tidak bisa diklik lagi */
-  transform: scale(1.1); /* Sedikit membesar saat hilang */
-  filter: blur(10px);
-}
-
 /* =========================================
    CUSTOM CYBER CURSOR & RADAR
    ========================================= */
-/* Sembunyikan kursor bawaan Windows/Mac di layar besar */
 @media (min-width: 768px) {
   body,
   a,
@@ -111,16 +65,15 @@ body.no-scroll {
   }
 }
 
-/* Titik Inti (Neon Cyan) */
 .cyber-cursor-dot {
   position: fixed;
   top: 0;
   left: 0;
   width: 6px;
   height: 6px;
-  background-color: var(--primary); /* Cyan Neon */
+  background-color: var(--primary);
   border-radius: 50%;
-  pointer-events: none; /* PENTING: Agar tidak menghalangi klik mouse */
+  pointer-events: none;
   z-index: 100000;
   transform: translate(-50%, -50%);
   box-shadow: 0 0 10px var(--primary);
@@ -129,7 +82,6 @@ body.no-scroll {
     box-shadow 0.3s;
 }
 
-/* Cincin Radar (Crosshair) */
 .cyber-cursor-ring {
   position: fixed;
   top: 0;
@@ -142,7 +94,6 @@ body.no-scroll {
   z-index: 99999;
   transform: translate(-50%, -50%);
   box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
-  /* Efek delay / mengekor yang bikin mulus banget */
   transition:
     width 0.3s,
     height 0.3s,
@@ -150,7 +101,6 @@ body.no-scroll {
     background-color 0.3s;
 }
 
-/* Garis Bidik (Kiri-Kanan & Atas-Bawah) di Cincin Radar */
 .cyber-cursor-ring::before,
 .cyber-cursor-ring::after {
   content: "";
@@ -158,7 +108,6 @@ body.no-scroll {
   background: rgba(0, 240, 255, 0.5);
   transition: background 0.3s;
 }
-/* Garis Horizontal */
 .cyber-cursor-ring::before {
   top: 50%;
   left: -6px;
@@ -166,7 +115,6 @@ body.no-scroll {
   height: 1px;
   transform: translateY(-50%);
 }
-/* Garis Vertikal */
 .cyber-cursor-ring::after {
   left: 50%;
   top: -6px;
@@ -175,9 +123,6 @@ body.no-scroll {
   transform: translateX(-50%);
 }
 
-/* =========================================
-   EFEK SAAT KURSOR MENYENTUH TOMBOL / LINK
-   ========================================= */
 .cursor-hover-active .cyber-cursor-dot {
   background-color: var(--accent-purple);
   box-shadow: 0 0 10px var(--accent-purple);
@@ -187,10 +132,9 @@ body.no-scroll {
   width: 55px;
   height: 55px;
   border-color: var(--accent-purple);
-  background-color: rgba(184, 0, 255, 0.05); /* Sedikit nyala ungu di dalam cincin */
-  animation: rotateRadar 3s linear infinite; /* Radar berputar */
+  background-color: rgba(184, 0, 255, 0.05);
+  animation: rotateRadar 3s linear infinite;
 }
-
 .cursor-hover-active .cyber-cursor-ring::before,
 .cursor-hover-active .cyber-cursor-ring::after {
   background: var(--accent-purple);
@@ -205,7 +149,6 @@ body.no-scroll {
   }
 }
 
-/* Sembunyikan Kursor Custom di HP/Tablet agar tidak error saat disentuh jari */
 @media (max-width: 767px) {
   .cyber-cursor-dot,
   .cyber-cursor-ring {
@@ -213,6 +156,9 @@ body.no-scroll {
   }
 }
 
+/* =========================================
+   CONTAINER
+   ========================================= */
 .container {
   width: 90%;
   max-width: 1200px;
@@ -220,9 +166,8 @@ body.no-scroll {
 }
 
 /* =========================================
-   EFEK WOW: SCANLINES & SCROLL REVEAL AUTO
+   SCANLINES & SCROLL REVEAL
    ========================================= */
-/* Efek monitor lama di seluruh layar (DIPERTJAM) */
 .scanlines {
   position: fixed;
   top: 0;
@@ -236,7 +181,6 @@ body.no-scroll {
   opacity: 0.6;
 }
 
-/* Animasi Muncul Halus Saat Di-scroll (DIPERHALUS WOW) */
 .reveal {
   opacity: 0;
   transform: translateY(60px);
@@ -248,9 +192,8 @@ body.no-scroll {
 }
 
 /* =========================================
-   BACKGROUND ANIMASI BERGERAK TOTAL (WOW! Effect)
+   BACKGROUND ANIMASI
    ========================================= */
-/* Efek Cyber Grid & Data Streams Berjalan (DIPERBAIKI WOW) */
 .bg-grid-cyber {
   position: fixed;
   top: 0;
@@ -276,7 +219,6 @@ body.no-scroll {
   }
 }
 
-/* Orbs Bercahaya Melayang di Belakang (DIPERBAIKI WOW) */
 .bg-gradient-wrapper {
   position: fixed;
   top: 0;
@@ -315,8 +257,18 @@ body.no-scroll {
   }
 }
 
+#neural-data-particle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
 /* =========================================
-   HEADER, NAVBAR, NEON TEXT & DROPDOWN (WOW! DIPERBAIKI)
+   HEADER & NAVBAR
    ========================================= */
 header {
   background: rgba(5, 5, 17, 0.85);
@@ -356,8 +308,6 @@ header {
   border-radius: 4px;
   border: 1px solid rgba(0, 240, 255, 0.2);
 }
-
-/* Neon Text Global (DIPERTJAM) */
 .neon-text {
   color: var(--primary);
   text-shadow:
@@ -365,15 +315,6 @@ header {
     0 0 20px rgba(0, 240, 255, 0.2),
     0 0 30px rgba(168, 85, 247, 0.15);
 }
-
-/* Teks Hanya Outline (Untuk Teks Belakang) */
-.outline-text {
-  -webkit-text-stroke: 1px var(--primary);
-  color: transparent;
-  text-shadow: none;
-}
-
-/* Animasi Kedip Neon (Korslet DIPERBAIKI WOW) */
 .flicker {
   animation: flickerAnimWOW 4s infinite alternate;
 }
@@ -432,29 +373,19 @@ header {
   width: 100%;
 }
 
-/* CYBER DROPDOWN (WOW! Effekt slide & glow) */
 .dropdown {
   position: relative;
   display: inline-block;
-}
-.dropdown .fa-solid,
-.dropdown-content .fa-solid {
-  margin-right: 8px;
-  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands";
-  font-weight: 900;
-  color: var(--primary);
 }
 .dropbtn .arrow {
   font-size: 12px;
   transition: transform 0.3s ease;
   display: inline-block;
 }
-/* Panah berputar saat di-hover */
 .dropdown:hover .arrow {
   transform: rotate(180deg);
   color: var(--primary);
 }
-
 .dropdown-content {
   display: none;
   position: absolute;
@@ -472,7 +403,6 @@ header {
   z-index: 1000;
   list-style: none;
 }
-/* Muncul Halus & Geser (Slide) */
 .dropdown:hover .dropdown-content {
   display: block;
   animation: dropSlideWOW 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
@@ -487,7 +417,6 @@ header {
     transform: translateY(0) scale(1);
   }
 }
-
 .dropdown-content li a {
   color: var(--text-muted);
   padding: 12px 25px;
@@ -496,14 +425,17 @@ header {
   transition: all 0.3s ease;
   border-left: 3px solid transparent;
 }
-.dropdown-content li a::after {
-  display: none;
-} /* Hilangkan garis bawah default nav */
 .dropdown-content li a:hover {
   background: rgba(0, 240, 255, 0.08);
   color: var(--primary);
   padding-left: 30px;
   border-left: 3px solid var(--primary);
+}
+.dropdown .fa-solid,
+.dropdown-content .fa-solid {
+  margin-right: 8px;
+  font-weight: 900;
+  color: var(--primary);
 }
 
 .menu-toggle {
@@ -518,22 +450,273 @@ header {
   background-color: var(--white);
 }
 
-/* ANIMASI MELAYANG HERO IMAGE TOTAL (WOW DIPERHALUS) */
-.levitate-anim {
-  animation: levitateWOW 6s ease-in-out infinite;
-}
-@keyframes levitateWOW {
-  0%,
-  100% {
-    transform: translateY(0);
+/* =========================================
+   RESPONSIVE MENU MOBILE
+   ========================================= */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
   }
-  50% {
-    transform: translateY(-25px);
-  } /* Melayang ke atas 25px */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background: rgba(5, 5, 17, 0.95);
+    padding: 20px 0;
+    gap: 20px;
+    border-bottom: 1px solid var(--primary);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  }
+  .section-header h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+  .section-header p {
+    text-align: center;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding-left: 20px;
+  }
+  .terminal-footer {
+    padding: 15px 15px;
+    text-align: center;
+    margin: auto;
+  }
+  .cyber-download-btn {
+    margin-top: 10px;
+    width: 270px;
+  }
+  .terminal-title {
+    display: none;
+  }
 }
 
 /* =========================================
-   FOOTER TERMINAL (WOW! CYBERPUNK EDITION)
+   SECTION HEADER & META TERMINAL
+   ========================================= */
+.section-header h2 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+.section-header p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--text-main);
+  font-size: 18px;
+}
+
+.meta-terminal {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  background: rgba(10, 10, 20, 0.6);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  padding: 30px;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+.meta-terminal::before,
+.meta-terminal::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary);
+  pointer-events: none;
+}
+.meta-terminal::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+.meta-terminal::after {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  background: rgba(0, 240, 255, 0.03);
+  border-left: 3px solid var(--accent-purple);
+  transition: all 0.3s ease;
+}
+.meta-item:hover {
+  background: rgba(0, 240, 255, 0.1);
+  transform: translateX(5px);
+  border-left-color: var(--primary);
+}
+.meta-icon {
+  font-size: 24px;
+  color: var(--primary);
+  filter: drop-shadow(0 0 5px var(--primary));
+}
+.meta-text {
+  display: flex;
+  flex-direction: column;
+}
+.meta-label {
+  font-family: monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  margin-bottom: 3px;
+}
+.meta-value {
+  font-weight: 700;
+  color: var(--white);
+  font-size: 15px;
+}
+.primary-glow {
+  color: var(--primary);
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+/* =========================================
+   PDF VIEWER TERMINAL & GRID
+   ========================================= */
+.pdf-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 30px;
+}
+@media (max-width: 992px) {
+  .pdf-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pdf-terminal-wrapper {
+  background: #050511;
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.5),
+    0 0 15px rgba(0, 240, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+}
+.terminal-header {
+  background: #0a0a14;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.terminal-dots {
+  display: flex;
+  gap: 8px;
+}
+.terminal-dots .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.terminal-dots .dot.red {
+  background-color: #ff5f56;
+}
+.terminal-dots .dot.yellow {
+  background-color: #ffbd2e;
+}
+.terminal-dots .dot.green {
+  background-color: #27c93f;
+}
+.terminal-title {
+  font-family: monospace;
+  color: var(--text-main);
+  font-size: 18px;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+.terminal-status {
+  font-family: monospace;
+  font-size: 12px;
+  color: #00ff66;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.pulse-dot {
+  animation: pulseGreen 2s infinite;
+}
+
+.pdf-container {
+  flex: 1;
+  height: 650px;
+  background: #000;
+  position: relative;
+}
+.cyber-pdf-frame {
+  width: 100%;
+  height: 650px;
+  border: none;
+}
+
+.terminal-footer {
+  background: #0a0a14;
+  border-top: 1px solid rgba(0, 240, 255, 0.3);
+  padding: 15px 20px;
+  text-align: center;
+}
+
+.cyber-download-btn {
+  display: inline-block;
+  font-family: monospace;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 8px 15px;
+  border: 1px solid var(--primary);
+  background: rgba(0, 240, 255, 0.05);
+  transition: all 0.3s ease;
+  margin: 10px;
+}
+.cyber-download-btn i {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  display: inline-block;
+  margin-right: 6px;
+  color: inherit;
+}
+.cyber-download-btn:hover {
+  background: var(--primary);
+  color: #020208;
+  box-shadow: 0 0 15px var(--primary);
+}
+.cyber-download-btn:hover .btn-bracket,
+.cyber-download-btn:hover i {
+  color: #020208;
+}
+
+/* =========================================
+   FOOTER
    ========================================= */
 .cyber-footer {
   background: rgba(5, 5, 17, 0.95);
@@ -544,8 +727,6 @@ header {
   z-index: 10;
   overflow: hidden;
 }
-
-/* Garis Cahaya di batas atas footer */
 .footer-glow-line {
   position: absolute;
   top: 0;
@@ -555,15 +736,20 @@ header {
   background: linear-gradient(90deg, transparent, var(--primary), var(--accent-purple), transparent);
   opacity: 0.5;
 }
-
 .footer-content {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1fr;
   gap: 90px;
   padding: 70px 0 50px 0;
 }
+@media (max-width: 992px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 40px 0;
+  }
+}
 
-/* Branding Column */
 .cyber-desc {
   color: var(--text-muted);
   font-size: 14px;
@@ -592,7 +778,6 @@ header {
   color: var(--text-muted);
 }
 
-/* Headers di Footer */
 .footer-links h4,
 .footer-social h4 {
   color: var(--white);
@@ -602,12 +787,6 @@ header {
   letter-spacing: 1px;
   text-transform: uppercase;
 }
-.primary-color {
-  color: var(--primary);
-  margin-right: 5px;
-}
-
-/* Links Navigasi */
 .footer-links ul {
   list-style: none;
 }
@@ -626,22 +805,15 @@ header {
 .footer-links i {
   margin-right: 8px;
   color: var(--primary);
-  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands";
   font-weight: 900;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  display: inline-block;
 }
 .footer-links a:hover {
   color: var(--primary);
   transform: translateX(5px);
 }
 
-/* Tombol Sosial Media Terminal Style */
 .social-grid {
   display: flex;
-  flex-direction: row;
   gap: 15px;
 }
 .social-btn {
@@ -658,33 +830,29 @@ header {
   transition: all 0.3s ease;
   width: max-content;
 }
-.btn-bracket {
-  color: var(--text-muted);
-  margin: 0 5px;
+.social-btn i {
+  color: var(--primary);
+  margin-right: 8px;
   transition: color 0.3s ease;
 }
-.btn-label {
+.social-btn .btn-label {
   font-family: var(--font-main);
-  margin-left: 10px;
   font-weight: 600;
   font-size: 14px;
+  color: var(--text-muted);
   transition: color 0.3s ease;
 }
-
 .social-btn:hover {
   background: rgba(0, 240, 255, 0.08);
   border-color: rgba(0, 240, 255, 0.3);
   transform: translateX(5px);
   box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
 }
-.social-btn:hover .btn-bracket {
-  color: var(--primary);
-}
+.social-btn:hover i,
 .social-btn:hover .btn-label {
   color: var(--white);
 }
 
-/* Footer Bottom (Copyright & System Status) */
 .footer-bottom {
   background: #020208;
   border-top: 1px dashed rgba(255, 255, 255, 0.1);
@@ -702,7 +870,6 @@ header {
   font-size: 13px;
   margin: 0;
 }
-
 .system-status {
   display: flex;
   align-items: center;
@@ -719,13 +886,21 @@ header {
   margin-right: 10px;
   box-shadow: 0 0 10px #00ff66;
 }
-.pulse-dot {
-  animation: pulseGreen 2s infinite;
+@keyframes pulseGreen {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 255, 102, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 255, 102, 0);
+  }
 }
 
-/* =========================================
-   CYBER LOCATION & TACTICAL MAP
-   ========================================= */
 .cyber-location {
   background: rgba(0, 240, 255, 0.03);
   border-left: 3px solid var(--primary);
@@ -752,8 +927,6 @@ header {
   display: block;
   margin-bottom: 12px;
 }
-
-/* Cyber Map Wrapper (WOW Effect) */
 .map-wrapper {
   position: relative;
   width: 100%;
@@ -763,8 +936,6 @@ header {
   border: 1px solid rgba(0, 240, 255, 0.3);
   box-shadow: inset 0 0 10px rgba(0, 240, 255, 0.5);
 }
-
-/* AJAIB: Ubah Google Maps menjadi Dark Cyber Radar */
 .map-wrapper iframe {
   width: 100%;
   height: 100%;
@@ -773,343 +944,4 @@ header {
 }
 .map-wrapper:hover iframe {
   opacity: 1;
-}
-
-/* Garis Hologram Scan di atas Peta */
-.map-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: repeating-linear-gradient(transparent 0px, rgba(0, 240, 255, 0.1) 2px, transparent 4px);
-  pointer-events: none; /* Supaya peta di bawahnya tetap bisa digeser/di-zoom pakai mouse */
-  z-index: 2;
-}
-
-@keyframes pulseGreen {
-  0% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.7);
-  }
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 10px rgba(0, 255, 102, 0);
-  }
-  100% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(0, 255, 102, 0);
-  }
-}
-
-/* Responsive Footer */
-@media (max-width: 900px) {
-  .footer-content {
-    grid-template-columns: 1fr 1fr;
-  }
-  .footer-brand {
-    grid-column: 1 / span 2;
-    text-align: center;
-  }
-  .cyber-desc {
-    margin: 15px auto 25px;
-  }
-}
-@media (max-width: 600px) {
-  .footer-content {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 40px;
-    padding: 50px 0 30px 0;
-  }
-  .footer-brand {
-    grid-column: 1;
-  }
-  .social-grid {
-    align-items: center;
-  }
-  .bottom-flex {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-/* =========================================
-   MOBILE RESPONSIVE
-   ========================================= */
-@media (max-width: 1024px) {
-  .hero h1 {
-    font-size: 50px;
-  }
-  .hero-content {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 50px;
-  }
-  .hero p {
-    margin: 0 auto 40px;
-  }
-  .hero-btns {
-    justify-content: center;
-  }
-  /* Responsive Teks Belakang Foto */
-  .hero-extreme-photo-bg-text-stack {
-    font-size: 40px;
-    left: 50%;
-  }
-  .main-portrait-photo {
-    height: 60vh;
-  }
-}
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: flex;
-    z-index: 1001;
-  }
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    left: -100%;
-    flex-direction: column;
-    width: 100%;
-    background: rgba(5, 5, 17, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 240, 255, 0.2);
-    padding: 30px 0;
-    transition: 0.4s ease;
-  }
-  .nav-links.active {
-    left: 0;
-  }
-  /* Responsive Dropdown Mobile */
-  .dropdown-content {
-    position: static;
-    box-shadow: none;
-    border: none;
-    background: transparent;
-    display: none;
-    padding-left: 20px;
-  }
-  .dropdown:hover .dropdown-content {
-    display: block;
-    animation: none;
-  }
-
-  .hero {
-    padding: 40px 0;
-  }
-  .hero h1 {
-    font-size: 40px;
-  }
-  .hero-btns {
-    flex-direction: column;
-  }
-  /* Responsive Teks Belakang Foto Mobile */
-  .hero-extreme-photo-bg-text-stack {
-    font-size: 30px;
-    left: 50%;
-    letter-spacing: -1px;
-  }
-  .main-portrait-photo {
-    height: 50vh;
-  }
-  .stats-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-}
-
-/* =========================================
-   HALAMAN MODEL GURU (VISI MISI - WOW EFFECT)
-   ========================================= */
-.page-content {
-  padding: 80px 0 50px;
-  position: relative;
-  z-index: 5;
-}
-
-/* Header Section */
-.vision-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-.page-title {
-  font-size: 20px;
-  color: var(--text-muted);
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  font-family: monospace;
-}
-.page-subtitle {
-  font-size: 42px;
-  font-weight: 800;
-  margin-bottom: 20px;
-}
-.section-heading {
-  text-align: center;
-  font-size: 24px;
-  color: var(--white);
-  margin: 70px 0 40px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-/* Grid System yang Presisi */
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-.grid-2 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-}
-
-/* Base Cyber Card */
-.cyber-card {
-  position: relative;
-  background: var(--card-bg);
-  border: 1px solid rgba(0, 240, 255, 0.15);
-  padding: 40px 30px;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: var(--transition);
-  backdrop-filter: blur(15px);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  z-index: 1;
-}
-
-/* Aksen Pinggiran Kartu ala Sci-Fi Target */
-.cyber-card::before,
-.cyber-card::after {
-  content: "";
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  border: 2px solid transparent;
-  transition: var(--transition);
-  z-index: 2;
-  pointer-events: none;
-}
-.cyber-card::before {
-  top: 10px;
-  left: 10px;
-  border-top-color: rgba(0, 240, 255, 0.4);
-  border-left-color: rgba(0, 240, 255, 0.4);
-}
-.cyber-card::after {
-  bottom: 10px;
-  right: 10px;
-  border-bottom-color: rgba(0, 240, 255, 0.4);
-  border-right-color: rgba(0, 240, 255, 0.4);
-}
-
-/* Efek "Scan" Garis Melintas */
-.card-glow {
-  position: absolute;
-  top: 0;
-  left: -150%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.15), transparent);
-  transform: skewX(-25deg);
-  transition: 0.6s ease-in-out;
-  z-index: -1;
-}
-
-/* Styling Khusus Mission Card (Utama) */
-.mission-card {
-  border-left: 5px solid var(--primary);
-  background: linear-gradient(135deg, rgba(20, 20, 35, 0.9), rgba(0, 240, 255, 0.05));
-  text-align: center;
-  align-items: center;
-}
-
-/* Styling Tipografi & Ikon di Dalam Kartu */
-.card-icon {
-  font-size: 45px;
-  margin-bottom: 10px;
-  display: inline-block;
-  filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.4));
-  transition:
-    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-    filter 0.4s;
-}
-.card-title {
-  font-size: 20px;
-  color: var(--white);
-  font-weight: 700;
-  letter-spacing: 1px;
-  transition: color 0.3s ease;
-}
-.card-desc {
-  color: var(--text-muted);
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-/* =========================================
-   HOVER ANIMATIONS (WOW! EFFECT)
-   ========================================= */
-.cyber-card:hover {
-  transform: translateY(-10px);
-  border-color: rgba(0, 240, 255, 0.6);
-  box-shadow:
-    0 15px 35px rgba(0, 0, 0, 0.5),
-    0 0 20px rgba(0, 240, 255, 0.15),
-    inset 0 0 15px rgba(0, 240, 255, 0.05);
-}
-.cyber-card:hover .card-glow {
-  left: 200%; /* Animasi cahaya menyapu */
-}
-.cyber-card:hover .card-icon {
-  transform: scale(1.2) rotate(10deg);
-  filter: drop-shadow(0 0 15px var(--accent-purple)); /* Berubah glow ungu */
-}
-.cyber-card:hover .card-title {
-  color: var(--primary);
-  text-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
-}
-/* Sudut Aksesoris membesar saat hover */
-.cyber-card:hover::before,
-.cyber-card:hover::after {
-  width: 25px;
-  height: 25px;
-  border-color: var(--accent-purple);
-}
-
-/* =========================================
-   RESPONSIVE DESIGN (Desktop, Tablet, HP)
-   ========================================= */
-@media (max-width: 1024px) {
-  .grid-3 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .page-subtitle {
-    font-size: 36px;
-  }
-}
-
-@media (max-width: 768px) {
-  .grid-3,
-  .grid-2 {
-    grid-template-columns: 1fr; /* Jadi 1 kolom bersusun di HP/Tablet */
-  }
-  .page-title {
-    font-size: 16px;
-  }
-  .page-subtitle {
-    font-size: 28px;
-  }
-  .page-content {
-    padding: 40px 0 30px;
-  }
-  .section-heading {
-    font-size: 20px;
-    margin: 50px 0 30px;
-  }
 }

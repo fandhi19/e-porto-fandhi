@@ -77,7 +77,9 @@ body {
   z-index: 100000;
   transform: translate(-50%, -50%);
   box-shadow: 0 0 10px var(--primary);
-  transition: background-color 0.3s, box-shadow 0.3s;
+  transition:
+    background-color 0.3s,
+    box-shadow 0.3s;
 }
 
 .cyber-cursor-ring {
@@ -92,7 +94,11 @@ body {
   z-index: 99999;
   transform: translate(-50%, -50%);
   box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
-  transition: width 0.3s, height 0.3s, border-color 0.3s, background-color 0.3s;
+  transition:
+    width 0.3s,
+    height 0.3s,
+    border-color 0.3s,
+    background-color 0.3s;
 }
 
 .cyber-cursor-ring::before,
@@ -136,8 +142,12 @@ body {
 }
 
 @keyframes rotateRadar {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 @media (max-width: 767px) {
@@ -191,19 +201,23 @@ body {
   left: 0;
   width: 100vw;
   height: 150vh;
-  background-image:
-    linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px),
-    radial-gradient(circle, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px, 40px 40px, 80px 80px;
+  background-image: linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px), radial-gradient(circle, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
+  background-size:
+    40px 40px,
+    40px 40px,
+    80px 80px;
   z-index: -2;
   transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
   animation: gridMoveCyber 10s linear infinite;
   opacity: 0.8;
 }
 @keyframes gridMoveCyber {
-  0% { background-position: 0 0; }
-  100% { background-position: 0 40px; }
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 40px;
+  }
 }
 
 .bg-gradient-wrapper {
@@ -221,19 +235,27 @@ body {
   animation: floatOrb 15s ease-in-out infinite alternate;
 }
 .orb-1 {
-  width: 400px; height: 400px;
+  width: 400px;
+  height: 400px;
   background: rgba(0, 240, 255, 0.15);
-  top: 10%; left: -5%;
+  top: 10%;
+  left: -5%;
 }
 .orb-2 {
-  width: 500px; height: 500px;
+  width: 500px;
+  height: 500px;
   background: rgba(168, 85, 247, 0.1);
-  bottom: 10%; right: -10%;
+  bottom: 10%;
+  right: -10%;
   animation-delay: -5s;
 }
 @keyframes floatOrb {
-  0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(150px, 100px) scale(1.2); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(150px, 100px) scale(1.2);
+  }
 }
 
 /* =========================================
@@ -280,19 +302,32 @@ header {
 
 .neon-text {
   color: var(--primary);
-  text-shadow: 0 0 10px rgba(0, 240, 255, 0.4), 0 0 20px rgba(0, 240, 255, 0.2), 0 0 30px rgba(168, 85, 247, 0.15);
+  text-shadow:
+    0 0 10px rgba(0, 240, 255, 0.4),
+    0 0 20px rgba(0, 240, 255, 0.2),
+    0 0 30px rgba(168, 85, 247, 0.15);
 }
 
 .flicker {
   animation: flickerAnimWOW 4s infinite alternate;
 }
 @keyframes flickerAnimWOW {
-  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
     opacity: 1;
     color: var(--primary);
-    text-shadow: 0 0 10px rgba(0, 240, 255, 0.4), 0 0 20px rgba(0, 240, 255, 0.2);
+    text-shadow:
+      0 0 10px rgba(0, 240, 255, 0.4),
+      0 0 20px rgba(0, 240, 255, 0.2);
   }
-  20%, 24%, 55% {
+  20%,
+  24%,
+  55% {
     opacity: 0.5;
     color: #1a5663;
     text-shadow: none;
@@ -355,7 +390,9 @@ header {
   min-width: 220px;
   border-radius: 12px;
   border: 1px solid rgba(0, 240, 255, 0.2);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 240, 255, 0.15);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(0, 240, 255, 0.15);
   padding: 10px 0;
   z-index: 1000;
   list-style: none;
@@ -365,8 +402,14 @@ header {
   animation: dropSlideWOW 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 @keyframes dropSlideWOW {
-  from { opacity: 0; transform: translateY(-15px) scale(0.95); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
+  from {
+    opacity: 0;
+    transform: translateY(-15px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .dropdown-content li a {
@@ -423,7 +466,8 @@ header {
 
 .footer-glow-line {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--primary), var(--accent-purple), transparent);
@@ -432,7 +476,7 @@ header {
 
 .footer-content {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
   gap: 90px;
   padding: 70px 0 50px 0;
 }
@@ -641,9 +685,18 @@ header {
 }
 
 @keyframes pulseGreen {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.7); }
-  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 255, 102, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0); }
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 255, 102, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 255, 102, 0);
+  }
 }
 
 /* =========================================
@@ -662,6 +715,7 @@ header {
   margin: 0 auto;
   color: var(--text-main);
   font-size: 18px;
+  text-align: center;
 }
 
 .meta-terminal {
@@ -682,17 +736,22 @@ header {
 .meta-terminal::after {
   content: "";
   position: absolute;
-  width: 20px; height: 20px;
+  width: 20px;
+  height: 20px;
   border: 2px solid var(--primary);
   pointer-events: none;
 }
 .meta-terminal::before {
-  top: 0; left: 0;
-  border-right: none; border-bottom: none;
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
 }
 .meta-terminal::after {
-  bottom: 0; right: 0;
-  border-left: none; border-top: none;
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
 }
 
 .meta-item {
@@ -752,7 +811,9 @@ header {
   border: 1px solid var(--primary);
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 240, 255, 0.2);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(0, 240, 255, 0.2);
 }
 
 .terminal-header {
@@ -768,12 +829,22 @@ header {
   gap: 8px;
 }
 .terminal-dots .dot {
-  width: 12px; height: 12px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
 }
-.dot.red    { background: #ff5f56; box-shadow: 0 0 8px #ff5f56; }
-.dot.yellow { background: #ffbd2e; box-shadow: 0 0 8px #ffbd2e; }
-.dot.green  { background: #27c93f; box-shadow: 0 0 8px #27c93f; }
+.dot.red {
+  background: #ff5f56;
+  box-shadow: 0 0 8px #ff5f56;
+}
+.dot.yellow {
+  background: #ffbd2e;
+  box-shadow: 0 0 8px #ffbd2e;
+}
+.dot.green {
+  background: #27c93f;
+  box-shadow: 0 0 8px #27c93f;
+}
 
 .terminal-title {
   font-family: monospace;
@@ -805,7 +876,7 @@ header {
   background: #0a0a14;
   border-top: 1px solid rgba(0, 240, 255, 0.3);
   padding: 15px 20px;
-  text-align: right;
+  text-align: center;
 }
 .cyber-download-btn {
   display: inline-block;
@@ -818,6 +889,7 @@ header {
   border: 1px solid var(--primary);
   background: rgba(0, 240, 255, 0.05);
   transition: all 0.3s ease;
+  margin: 10px;
 }
 .cyber-download-btn i {
   font-family: "Font Awesome 6 Free";
@@ -873,7 +945,9 @@ header {
     padding: 30px 0;
     transition: 0.4s ease;
   }
-  .nav-links.active { left: 0; }
+  .nav-links.active {
+    left: 0;
+  }
 
   .dropdown-content {
     position: static;
@@ -895,9 +969,12 @@ header {
     height: 60vh;
     min-height: 400px;
   }
-  .terminal-title { display: none; }
+  .terminal-title {
+    display: none;
+  }
   .cyber-download-btn {
-    margin: 5px;
+    margin-top: 10px;
+    width: 270px;
   }
 }
 
@@ -908,9 +985,19 @@ header {
     gap: 40px;
     padding: 50px 0 30px 0;
   }
-  .footer-brand { grid-column: 1; }
-  .social-grid { align-items: center; }
-  .bottom-flex { flex-direction: column; text-align: center; }
+  .footer-brand {
+    grid-column: 1;
+  }
+  .social-grid {
+    align-items: center;
+  }
+  .bottom-flex {
+    flex-direction: column;
+    text-align: center;
+  }
+  .section-header h2 {
+    text-align: center;
+  }
 }
 
 /* =========================================
@@ -918,8 +1005,10 @@ header {
    ========================================= */
 #neural-data-particle {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: -3;
   pointer-events: none;
   opacity: 0.4;
