@@ -700,6 +700,126 @@ header {
 }
 
 /* =========================================
+   CONTEXT ANALYSIS SECTION (CYBER STYLE)
+   ========================================= */
+.context-analysis {
+  padding: 60px 0;
+  position: relative;
+}
+
+.cyber-grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.analysis-card {
+  background: rgba(10, 10, 25, 0.7);
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  padding: 30px;
+  position: relative;
+  border-radius: 4px; /* Sudut tajam lebih terkesan futuristik */
+  overflow: hidden;
+  transition: var(--transition);
+  backdrop-filter: blur(10px);
+}
+
+.analysis-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: var(--primary);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
+}
+
+/* Garis Scanner yang bergerak saat hover */
+.card-scanner {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, rgba(0, 240, 255, 0.1), transparent);
+  pointer-events: none;
+  transition: none;
+}
+
+.analysis-card:hover .card-scanner {
+  animation: cyberScan 2s linear infinite;
+}
+
+@keyframes cyberScan {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+.analysis-icon {
+  font-size: 32px;
+  color: var(--primary);
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 8px var(--primary));
+  transition: var(--transition);
+}
+
+.analysis-card:hover .analysis-icon {
+  transform: rotateY(360deg);
+  color: var(--white);
+}
+
+.analysis-content h3 {
+  font-family: monospace;
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: var(--white);
+  letter-spacing: 1px;
+}
+
+.analysis-content .bracket {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.analysis-content p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* Highlight Text */
+.highlight-cyan {
+  color: var(--primary);
+  font-weight: 600;
+}
+.highlight-purple {
+  color: var(--accent-purple);
+  font-weight: 600;
+}
+.highlight-red {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Tambahan hiasan sudut (L-Shape) */
+.analysis-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid var(--primary);
+  border-left: 2px solid var(--primary);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.analysis-card:hover::before {
+  opacity: 1;
+}
+
+/* =========================================
    SECTION HEADER & META TERMINAL
    ========================================= */
 .section-header h2 {
